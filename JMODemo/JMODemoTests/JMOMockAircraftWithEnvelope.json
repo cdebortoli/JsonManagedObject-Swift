@@ -1,0 +1,26 @@
+{
+    "class": "Aircraft",
+    "mock":
+    [
+     {
+        "aircraftId": "11",
+        "aircraftName":"tlse",
+        "aircraftCanFly":1,
+        "aircraftPurchaseDate":"2013-01-01",
+        "aircraftPilots": [
+                           { "pilotId": 1, "pilotName": "Gege" },
+                           { "pilotId": 2, "pilotName": "Gege" }
+                           ]
+     },
+     {
+     "aircraftId": "21",
+     "aircraftName":"BL",
+     "aircraftCanFly":0,
+     "aircraftPurchaseDate":"2013-01-01",
+     "aircraftPilots": [
+                        { "pilotId": 3, "pilotName": "Gege" },
+                        { "pilotId": 4, "pilotName": "Gege" }
+                        ]
+     }
+    ]
+}

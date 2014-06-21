@@ -1,0 +1,608 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		48337D5B1956332900AA03DE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48337D5A1956332900AA03DE /* AppDelegate.swift */; };
+		48337D5E1956332900AA03DE /* JMODemo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 48337D5C1956332900AA03DE /* JMODemo.xcdatamodeld */; };
+		48337D601956332900AA03DE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48337D5F1956332900AA03DE /* ViewController.swift */; };
+		48337D631956332900AA03DE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 48337D611956332900AA03DE /* Main.storyboard */; };
+		48337D651956332900AA03DE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 48337D641956332900AA03DE /* Images.xcassets */; };
+		48337D711956332900AA03DE /* JMODemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48337D701956332900AA03DE /* JMODemoTests.swift */; };
+		48337D851956338C00AA03DE /* JsonManagedObject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48337D821956334E00AA03DE /* JsonManagedObject.framework */; };
+		48337D881956339000AA03DE /* JsonManagedObject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48337D821956334E00AA03DE /* JsonManagedObject.framework */; };
+		48337D8D195633DB00AA03DE /* Aircraft.m in Sources */ = {isa = PBXBuildFile; fileRef = 48337D8C195633DB00AA03DE /* Aircraft.m */; };
+		48337D8E195633DB00AA03DE /* Aircraft.m in Sources */ = {isa = PBXBuildFile; fileRef = 48337D8C195633DB00AA03DE /* Aircraft.m */; };
+		48337D91195633DB00AA03DE /* Airport.m in Sources */ = {isa = PBXBuildFile; fileRef = 48337D90195633DB00AA03DE /* Airport.m */; };
+		48337D92195633DB00AA03DE /* Airport.m in Sources */ = {isa = PBXBuildFile; fileRef = 48337D90195633DB00AA03DE /* Airport.m */; };
+		48337D95195633DB00AA03DE /* Pilot.m in Sources */ = {isa = PBXBuildFile; fileRef = 48337D94195633DB00AA03DE /* Pilot.m */; };
+		48337D96195633DB00AA03DE /* Pilot.m in Sources */ = {isa = PBXBuildFile; fileRef = 48337D94195633DB00AA03DE /* Pilot.m */; };
+		48337D9B195633F100AA03DE /* aircraftJson.json in Resources */ = {isa = PBXBuildFile; fileRef = 48337D97195633F100AA03DE /* aircraftJson.json */; };
+		48337D9C195633F100AA03DE /* customObjectJson.json in Resources */ = {isa = PBXBuildFile; fileRef = 48337D98195633F100AA03DE /* customObjectJson.json */; };
+		48337D9D195633F100AA03DE /* aircraftJsonWithEnvelope.json in Resources */ = {isa = PBXBuildFile; fileRef = 48337D99195633F100AA03DE /* aircraftJsonWithEnvelope.json */; };
+		48337D9E195633F100AA03DE /* aircraftsJsonWithEnvelope.json in Resources */ = {isa = PBXBuildFile; fileRef = 48337D9A195633F100AA03DE /* aircraftsJsonWithEnvelope.json */; };
+		48337DA01956340200AA03DE /* JMOConfigTemplate.json in Resources */ = {isa = PBXBuildFile; fileRef = 48337D9F1956340200AA03DE /* JMOConfigTemplate.json */; };
+		48337DA31956344200AA03DE /* DatabaseCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48337DA11956344200AA03DE /* DatabaseCore.swift */; };
+		48337DA41956344200AA03DE /* DatabaseCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48337DA11956344200AA03DE /* DatabaseCore.swift */; };
+		48337DA51956344200AA03DE /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48337DA21956344200AA03DE /* DatabaseManager.swift */; };
+		48337DA61956344200AA03DE /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48337DA21956344200AA03DE /* DatabaseManager.swift */; };
+		48337DAC195634A100AA03DE /* JMOMockAircraft.json in Resources */ = {isa = PBXBuildFile; fileRef = 48337DA8195634A100AA03DE /* JMOMockAircraft.json */; };
+		48337DAD195634A100AA03DE /* JMOMockAircraftWithEnvelope.json in Resources */ = {isa = PBXBuildFile; fileRef = 48337DA9195634A100AA03DE /* JMOMockAircraftWithEnvelope.json */; };
+		48337DAE195634A100AA03DE /* JMOMockCustomObject.json in Resources */ = {isa = PBXBuildFile; fileRef = 48337DAA195634A100AA03DE /* JMOMockCustomObject.json */; };
+		48337DAF195634A100AA03DE /* JMOMockCustomObjects.json in Resources */ = {isa = PBXBuildFile; fileRef = 48337DAB195634A100AA03DE /* JMOMockCustomObjects.json */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		48337D6B1956332900AA03DE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 48337D4D1956332900AA03DE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 48337D541956332900AA03DE;
+			remoteInfo = JMODemo;
+		};
+		48337D811956334E00AA03DE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 48337D7C1956334E00AA03DE /* JsonManagedObject.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 48507D7B19561C2600717D8A;
+			remoteInfo = JsonManagedObject;
+		};
+		48337D831956334E00AA03DE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 48337D7C1956334E00AA03DE /* JsonManagedObject.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 48507D8619561C2600717D8A;
+			remoteInfo = JsonManagedObjectTests;
+		};
+		48337D861956338D00AA03DE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 48337D4D1956332900AA03DE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 48337D541956332900AA03DE;
+			remoteInfo = JMODemo;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		48337D551956332900AA03DE /* JMODemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JMODemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		48337D591956332900AA03DE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		48337D5A1956332900AA03DE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		48337D5D1956332900AA03DE /* JMODemo.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = JMODemo.xcdatamodel; sourceTree = "<group>"; };
+		48337D5F1956332900AA03DE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		48337D621956332900AA03DE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		48337D641956332900AA03DE /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		48337D6A1956332900AA03DE /* JMODemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JMODemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		48337D6F1956332900AA03DE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		48337D701956332900AA03DE /* JMODemoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JMODemoTests.swift; sourceTree = "<group>"; };
+		48337D7C1956334E00AA03DE /* JsonManagedObject.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = JsonManagedObject.xcodeproj; path = ../JsonManagedObject/JsonManagedObject.xcodeproj; sourceTree = "<group>"; };
+		48337D89195633DA00AA03DE /* JMODemo-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "JMODemo-Bridging-Header.h"; sourceTree = "<group>"; };
+		48337D8A195633DA00AA03DE /* JMODemoTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "JMODemoTests-Bridging-Header.h"; sourceTree = "<group>"; };
+		48337D8B195633DB00AA03DE /* Aircraft.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Aircraft.h; sourceTree = "<group>"; };
+		48337D8C195633DB00AA03DE /* Aircraft.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Aircraft.m; sourceTree = "<group>"; };
+		48337D8F195633DB00AA03DE /* Airport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Airport.h; sourceTree = "<group>"; };
+		48337D90195633DB00AA03DE /* Airport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Airport.m; sourceTree = "<group>"; };
+		48337D93195633DB00AA03DE /* Pilot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Pilot.h; sourceTree = "<group>"; };
+		48337D94195633DB00AA03DE /* Pilot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Pilot.m; sourceTree = "<group>"; };
+		48337D97195633F100AA03DE /* aircraftJson.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = aircraftJson.json; sourceTree = "<group>"; };
+		48337D98195633F100AA03DE /* customObjectJson.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = customObjectJson.json; sourceTree = "<group>"; };
+		48337D99195633F100AA03DE /* aircraftJsonWithEnvelope.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = aircraftJsonWithEnvelope.json; sourceTree = "<group>"; };
+		48337D9A195633F100AA03DE /* aircraftsJsonWithEnvelope.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = aircraftsJsonWithEnvelope.json; sourceTree = "<group>"; };
+		48337D9F1956340200AA03DE /* JMOConfigTemplate.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = JMOConfigTemplate.json; sourceTree = "<group>"; };
+		48337DA11956344200AA03DE /* DatabaseCore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseCore.swift; sourceTree = "<group>"; };
+		48337DA21956344200AA03DE /* DatabaseManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
+		48337DA8195634A100AA03DE /* JMOMockAircraft.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = JMOMockAircraft.json; sourceTree = "<group>"; };
+		48337DA9195634A100AA03DE /* JMOMockAircraftWithEnvelope.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = JMOMockAircraftWithEnvelope.json; sourceTree = "<group>"; };
+		48337DAA195634A100AA03DE /* JMOMockCustomObject.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = JMOMockCustomObject.json; sourceTree = "<group>"; };
+		48337DAB195634A100AA03DE /* JMOMockCustomObjects.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = JMOMockCustomObjects.json; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		48337D521956332900AA03DE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				48337D851956338C00AA03DE /* JsonManagedObject.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		48337D671956332900AA03DE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				48337D881956339000AA03DE /* JsonManagedObject.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		48337D4C1956332900AA03DE = {
+			isa = PBXGroup;
+			children = (
+				48337D7C1956334E00AA03DE /* JsonManagedObject.xcodeproj */,
+				48337D571956332900AA03DE /* JMODemo */,
+				48337D6D1956332900AA03DE /* JMODemoTests */,
+				48337D561956332900AA03DE /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		48337D561956332900AA03DE /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				48337D551956332900AA03DE /* JMODemo.app */,
+				48337D6A1956332900AA03DE /* JMODemoTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		48337D571956332900AA03DE /* JMODemo */ = {
+			isa = PBXGroup;
+			children = (
+				48337D7B1956333800AA03DE /* Services */,
+				48337D7A1956333100AA03DE /* Datamodel */,
+				48337D9F1956340200AA03DE /* JMOConfigTemplate.json */,
+				48337D5A1956332900AA03DE /* AppDelegate.swift */,
+				48337D5F1956332900AA03DE /* ViewController.swift */,
+				48337D611956332900AA03DE /* Main.storyboard */,
+				48337D641956332900AA03DE /* Images.xcassets */,
+				48337D581956332900AA03DE /* Supporting Files */,
+			);
+			path = JMODemo;
+			sourceTree = "<group>";
+		};
+		48337D581956332900AA03DE /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				48337D89195633DA00AA03DE /* JMODemo-Bridging-Header.h */,
+				48337D8A195633DA00AA03DE /* JMODemoTests-Bridging-Header.h */,
+				48337D591956332900AA03DE /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		48337D6D1956332900AA03DE /* JMODemoTests */ = {
+			isa = PBXGroup;
+			children = (
+				48337DA71956349400AA03DE /* Mocks */,
+				48337D701956332900AA03DE /* JMODemoTests.swift */,
+				48337D6E1956332900AA03DE /* Supporting Files */,
+			);
+			path = JMODemoTests;
+			sourceTree = "<group>";
+		};
+		48337D6E1956332900AA03DE /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				48337D6F1956332900AA03DE /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		48337D7A1956333100AA03DE /* Datamodel */ = {
+			isa = PBXGroup;
+			children = (
+				48337D5C1956332900AA03DE /* JMODemo.xcdatamodeld */,
+				48337D93195633DB00AA03DE /* Pilot.h */,
+				48337D94195633DB00AA03DE /* Pilot.m */,
+				48337D8F195633DB00AA03DE /* Airport.h */,
+				48337D90195633DB00AA03DE /* Airport.m */,
+				48337D8B195633DB00AA03DE /* Aircraft.h */,
+				48337D8C195633DB00AA03DE /* Aircraft.m */,
+				48337DA11956344200AA03DE /* DatabaseCore.swift */,
+				48337DA21956344200AA03DE /* DatabaseManager.swift */,
+			);
+			name = Datamodel;
+			sourceTree = "<group>";
+		};
+		48337D7B1956333800AA03DE /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				48337D97195633F100AA03DE /* aircraftJson.json */,
+				48337D98195633F100AA03DE /* customObjectJson.json */,
+				48337D99195633F100AA03DE /* aircraftJsonWithEnvelope.json */,
+				48337D9A195633F100AA03DE /* aircraftsJsonWithEnvelope.json */,
+			);
+			name = Services;
+			sourceTree = "<group>";
+		};
+		48337D7D1956334E00AA03DE /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				48337D821956334E00AA03DE /* JsonManagedObject.framework */,
+				48337D841956334E00AA03DE /* JsonManagedObjectTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		48337DA71956349400AA03DE /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				48337DA8195634A100AA03DE /* JMOMockAircraft.json */,
+				48337DA9195634A100AA03DE /* JMOMockAircraftWithEnvelope.json */,
+				48337DAA195634A100AA03DE /* JMOMockCustomObject.json */,
+				48337DAB195634A100AA03DE /* JMOMockCustomObjects.json */,
+			);
+			name = Mocks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		48337D541956332900AA03DE /* JMODemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 48337D741956332900AA03DE /* Build configuration list for PBXNativeTarget "JMODemo" */;
+			buildPhases = (
+				48337D511956332900AA03DE /* Sources */,
+				48337D521956332900AA03DE /* Frameworks */,
+				48337D531956332900AA03DE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = JMODemo;
+			productName = JMODemo;
+			productReference = 48337D551956332900AA03DE /* JMODemo.app */;
+			productType = "com.apple.product-type.application";
+		};
+		48337D691956332900AA03DE /* JMODemoTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 48337D771956332900AA03DE /* Build configuration list for PBXNativeTarget "JMODemoTests" */;
+			buildPhases = (
+				48337D661956332900AA03DE /* Sources */,
+				48337D671956332900AA03DE /* Frameworks */,
+				48337D681956332900AA03DE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				48337D6C1956332900AA03DE /* PBXTargetDependency */,
+				48337D871956338D00AA03DE /* PBXTargetDependency */,
+			);
+			name = JMODemoTests;
+			productName = JMODemoTests;
+			productReference = 48337D6A1956332900AA03DE /* JMODemoTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		48337D4D1956332900AA03DE /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0600;
+				ORGANIZATIONNAME = cdebortoli;
+				TargetAttributes = {
+					48337D541956332900AA03DE = {
+						CreatedOnToolsVersion = 6.0;
+					};
+					48337D691956332900AA03DE = {
+						CreatedOnToolsVersion = 6.0;
+						TestTargetID = 48337D541956332900AA03DE;
+					};
+				};
+			};
+			buildConfigurationList = 48337D501956332900AA03DE /* Build configuration list for PBXProject "JMODemo" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 48337D4C1956332900AA03DE;
+			productRefGroup = 48337D561956332900AA03DE /* Products */;
+			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 48337D7D1956334E00AA03DE /* Products */;
+					ProjectRef = 48337D7C1956334E00AA03DE /* JsonManagedObject.xcodeproj */;
+				},
+			);
+			projectRoot = "";
+			targets = (
+				48337D541956332900AA03DE /* JMODemo */,
+				48337D691956332900AA03DE /* JMODemoTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		48337D821956334E00AA03DE /* JsonManagedObject.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = JsonManagedObject.framework;
+			remoteRef = 48337D811956334E00AA03DE /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		48337D841956334E00AA03DE /* JsonManagedObjectTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = JsonManagedObjectTests.xctest;
+			remoteRef = 48337D831956334E00AA03DE /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
+/* Begin PBXResourcesBuildPhase section */
+		48337D531956332900AA03DE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				48337D9B195633F100AA03DE /* aircraftJson.json in Resources */,
+				48337D9C195633F100AA03DE /* customObjectJson.json in Resources */,
+				48337D9D195633F100AA03DE /* aircraftJsonWithEnvelope.json in Resources */,
+				48337D9E195633F100AA03DE /* aircraftsJsonWithEnvelope.json in Resources */,
+				48337D631956332900AA03DE /* Main.storyboard in Resources */,
+				48337DA01956340200AA03DE /* JMOConfigTemplate.json in Resources */,
+				48337D651956332900AA03DE /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		48337D681956332900AA03DE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				48337DAC195634A100AA03DE /* JMOMockAircraft.json in Resources */,
+				48337DAF195634A100AA03DE /* JMOMockCustomObjects.json in Resources */,
+				48337DAD195634A100AA03DE /* JMOMockAircraftWithEnvelope.json in Resources */,
+				48337DAE195634A100AA03DE /* JMOMockCustomObject.json in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		48337D511956332900AA03DE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				48337DA51956344200AA03DE /* DatabaseManager.swift in Sources */,
+				48337D95195633DB00AA03DE /* Pilot.m in Sources */,
+				48337D601956332900AA03DE /* ViewController.swift in Sources */,
+				48337D91195633DB00AA03DE /* Airport.m in Sources */,
+				48337DA31956344200AA03DE /* DatabaseCore.swift in Sources */,
+				48337D8D195633DB00AA03DE /* Aircraft.m in Sources */,
+				48337D5B1956332900AA03DE /* AppDelegate.swift in Sources */,
+				48337D5E1956332900AA03DE /* JMODemo.xcdatamodeld in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		48337D661956332900AA03DE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				48337D92195633DB00AA03DE /* Airport.m in Sources */,
+				48337DA41956344200AA03DE /* DatabaseCore.swift in Sources */,
+				48337DA61956344200AA03DE /* DatabaseManager.swift in Sources */,
+				48337D711956332900AA03DE /* JMODemoTests.swift in Sources */,
+				48337D96195633DB00AA03DE /* Pilot.m in Sources */,
+				48337D8E195633DB00AA03DE /* Aircraft.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		48337D6C1956332900AA03DE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 48337D541956332900AA03DE /* JMODemo */;
+			targetProxy = 48337D6B1956332900AA03DE /* PBXContainerItemProxy */;
+		};
+		48337D871956338D00AA03DE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 48337D541956332900AA03DE /* JMODemo */;
+			targetProxy = 48337D861956338D00AA03DE /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		48337D611956332900AA03DE /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				48337D621956332900AA03DE /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		48337D721956332900AA03DE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				METAL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = 2;
+			};
+			name = Debug;
+		};
+		48337D731956332900AA03DE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				METAL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 2;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		48337D751956332900AA03DE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
+				INFOPLIST_FILE = JMODemo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "JMODemo/JMODemo-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		48337D761956332900AA03DE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
+				INFOPLIST_FILE = JMODemo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "JMODemo/JMODemo-Bridging-Header.h";
+			};
+			name = Release;
+		};
+		48337D781956332900AA03DE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/JMODemo.app/JMODemo";
+				CLANG_ENABLE_MODULES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = JMODemoTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				METAL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "JMODemo/JMODemoTests-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+			};
+			name = Debug;
+		};
+		48337D791956332900AA03DE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/JMODemo.app/JMODemo";
+				CLANG_ENABLE_MODULES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = JMODemoTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				METAL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "JMODemo/JMODemoTests-Bridging-Header.h";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		48337D501956332900AA03DE /* Build configuration list for PBXProject "JMODemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				48337D721956332900AA03DE /* Debug */,
+				48337D731956332900AA03DE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		48337D741956332900AA03DE /* Build configuration list for PBXNativeTarget "JMODemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				48337D751956332900AA03DE /* Debug */,
+				48337D761956332900AA03DE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		48337D771956332900AA03DE /* Build configuration list for PBXNativeTarget "JMODemoTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				48337D781956332900AA03DE /* Debug */,
+				48337D791956332900AA03DE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		48337D5C1956332900AA03DE /* JMODemo.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				48337D5D1956332900AA03DE /* JMODemo.xcdatamodel */,
+			);
+			currentVersion = 48337D5D1956332900AA03DE /* JMODemo.xcdatamodel */;
+			path = JMODemo.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 48337D4D1956332900AA03DE /* Project object */;
+}

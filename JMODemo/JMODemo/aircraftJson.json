@@ -1,0 +1,10 @@
+{
+    "aircraftId": "11",
+    "aircraftName":"tlse",
+    "aircraftCanFly":1,
+    "aircraftPurchaseDate":"2013-01-01",
+    "aircraftPilots": [
+                        { "pilotId": 1, "pilotName": "Gege" },
+                        { "pilotId": 1, "pilotName": "Gege" }
+                       ]
+}
