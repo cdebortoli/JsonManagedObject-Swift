@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="6172.15" systemVersion="13D65" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="Aircraft" representedClassName="Aircraft" syncable="YES">
+        <attribute name="canFly" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="primaryKey" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="purchaseDate" optional="YES" attributeType="Date" syncable="YES"/>
+        <relationship name="airport" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Airport" inverseName="aircrafts" inverseEntity="Airport" syncable="YES"/>
+        <relationship name="pilots" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Pilot" inverseName="aircrafts" inverseEntity="Pilot" syncable="YES"/>
+    </entity>
+    <entity name="Airport" representedClassName="Airport" syncable="YES">
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="primaryKey" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <relationship name="aircrafts" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Aircraft" inverseName="airport" inverseEntity="Aircraft" syncable="YES"/>
+    </entity>
+    <entity name="Pilot" representedClassName="Pilot" syncable="YES">
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="primaryKey" optional="YES" attributeType="Integer 32" defaultValueString="0.0" syncable="YES"/>
+        <relationship name="aircrafts" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Aircraft" inverseName="pilots" inverseEntity="Aircraft" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Airport" positionX="-63" positionY="-18" width="128" height="88"/>
+        <element name="Pilot" positionX="-54" positionY="-9" width="128" height="88"/>
+        <element name="Aircraft" positionX="-36" positionY="9" width="128" height="133"/>
+    </elements>
+</model>
