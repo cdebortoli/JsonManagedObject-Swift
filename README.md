@@ -118,3 +118,6 @@ Exemple of use :
             }
         })
 
+###TODO
+1. Debug Test Helper
+2. Readme rework (remove all EasyJson reference)

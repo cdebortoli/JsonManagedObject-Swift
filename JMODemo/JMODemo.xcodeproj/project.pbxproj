@@ -32,8 +32,6 @@
 		48337DA61956344200AA03DE /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48337DA21956344200AA03DE /* DatabaseManager.swift */; };
 		48337DAC195634A100AA03DE /* JMOMockAircraft.json in Resources */ = {isa = PBXBuildFile; fileRef = 48337DA8195634A100AA03DE /* JMOMockAircraft.json */; };
 		48337DAD195634A100AA03DE /* JMOMockAircraftWithEnvelope.json in Resources */ = {isa = PBXBuildFile; fileRef = 48337DA9195634A100AA03DE /* JMOMockAircraftWithEnvelope.json */; };
-		48337DAE195634A100AA03DE /* JMOMockCustomObject.json in Resources */ = {isa = PBXBuildFile; fileRef = 48337DAA195634A100AA03DE /* JMOMockCustomObject.json */; };
-		48337DAF195634A100AA03DE /* JMOMockCustomObjects.json in Resources */ = {isa = PBXBuildFile; fileRef = 48337DAB195634A100AA03DE /* JMOMockCustomObjects.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -96,8 +94,6 @@
 		48337DA21956344200AA03DE /* DatabaseManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
 		48337DA8195634A100AA03DE /* JMOMockAircraft.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = JMOMockAircraft.json; sourceTree = "<group>"; };
 		48337DA9195634A100AA03DE /* JMOMockAircraftWithEnvelope.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = JMOMockAircraftWithEnvelope.json; sourceTree = "<group>"; };
-		48337DAA195634A100AA03DE /* JMOMockCustomObject.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = JMOMockCustomObject.json; sourceTree = "<group>"; };
-		48337DAB195634A100AA03DE /* JMOMockCustomObjects.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = JMOMockCustomObjects.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -223,8 +219,6 @@
 			children = (
 				48337DA8195634A100AA03DE /* JMOMockAircraft.json */,
 				48337DA9195634A100AA03DE /* JMOMockAircraftWithEnvelope.json */,
-				48337DAA195634A100AA03DE /* JMOMockCustomObject.json */,
-				48337DAB195634A100AA03DE /* JMOMockCustomObjects.json */,
 			);
 			name = Mocks;
 			sourceTree = "<group>";
@@ -348,9 +342,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				48337DAC195634A100AA03DE /* JMOMockAircraft.json in Resources */,
-				48337DAF195634A100AA03DE /* JMOMockCustomObjects.json in Resources */,
 				48337DAD195634A100AA03DE /* JMOMockAircraftWithEnvelope.json in Resources */,
-				48337DAE195634A100AA03DE /* JMOMockCustomObject.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

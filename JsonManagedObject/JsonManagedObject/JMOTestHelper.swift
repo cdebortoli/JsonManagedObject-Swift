@@ -61,7 +61,7 @@ class JMOTestHelper {
                     let mockJson:AnyObject = jsonDictionary["mock"]!
                     let mockClassStrOptional = jsonDictionary["class"]! as? String
                     let mockClass:AnyClass = NSClassFromString(mockClassStrOptional!)
-                    
+
                     // Dictionary
                     if (mockJson is Dictionary<String, AnyObject>) {
                         var objectOptional:AnyObject? = jsonManagedObjectSharedInstance.analyzeJsonDictionary(mockJson as Dictionary<String, AnyObject>, forClass:mockClass)
