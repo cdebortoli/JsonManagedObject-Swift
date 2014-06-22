@@ -3,15 +3,15 @@ JsonManagedObject-Swift
 ###JSON to NSManagedObject and vice versa
 
 
-##How to install it
+##Installation
 1. Drag the JsonManagedObject project in your project and add JsonManagedObject as an embedded Framework.
-2. Create and configure a, JMOConfigTemplate.json file based on the JMOConfigTemplate.tpl template file.
+2. Create and configure a JMOConfigTemplate.json file based on the JMOConfigTemplate.tpl template file.
 3. Import JsonManagedObject in your code.
 
-##How to configure it
+##Configuration
 
 ###JMOConfigTemplate file
-The rool level of this file is an array which contain each object availables for the JSON Parsing.
+The root level of this file is an array which contain each object availables for the JSON Parsing.
 
 Two kinds of object can be specified in this file:
 
@@ -30,10 +30,10 @@ Two kinds of object can be specified in this file:
 
 
 ###Configuration parameters
-To configure your JsonManagedObject, call the struct JMOConfig. With it, you can configure 4 parameters.
+To configure the parameters of the JsonManagedObject framework, you need to use the JMOConfig struct. With it, you can configure the 4 following parameters.
 
 **Envelope Format**
-Set to true if your JSON data is specified by a key value.
+Set to true if your JSON data are specified under a key value.
 
     JMOConfig.jsonWithEnvelope = true
 
@@ -53,7 +53,7 @@ Set the date format used to analyze your json.
 
 **Managed Object Context**
 
-Set your managedObjectContext to allow JsonManagedObject to init an NSManagedObject.
+Set the managedObjectContext parameter to allow JsonManagedObject to instantiate an NSManagedObject.
 
     JMOConfig.managedObjectContext = yourManagedObjectContext
 
@@ -66,7 +66,7 @@ If you don't want to store the parsed objects in your ManagedObjectContext, you 
 
 ##How to use it
 
-Your can access to JsonManagedObject with the Singleton "jsonManagedObjectSharedInstance".
+You can access to JsonManagedObject with the Singleton "jsonManagedObjectSharedInstance".
 
 To bind a JSON Object to a NSManagedObject:
 
@@ -80,19 +80,19 @@ To convert a NSmanagedObject in a Dictionary which is ready for JSON Serializati
    
      func getJmoJson(relationshipClassesToIgnore:String[] = String[]()) -> Dictionary <String, AnyObject>{
 
-In parameter of this method, you can pass the string representations of Class which will be ignored during the parsing.
-The JsonManagedObject Framework use this array parameter with the recursive call to avoid infinite loops.
+The parameter of this method contains the string representations of Class which will be ignored during the parsing.
+The JsonManagedObject Framework uses this array with the recursive call to avoid infinite loops.
 
 
-##How to test it
+##Unit tests with your mocks
 JsonManagedObject has a test helper to analyze your JSON Mocks.
-To use the tests:
+To test your mocks:
 
-1. Import JsonManagedObject in your tests files/bundle.
+1. Import the JsonManagedObject Framework in your tests files/bundle.
 2. Create the mocks of your JSON Services with files which follows this name pattern : "JMOMock[CustomTitle].json". Replace [CustomTitle] by the title of your choice.
-3. Call the "checkMocksFromBundle" of "JMOTestHelper".
+3. Call the "checkMocksFromBundle" method of the "JMOTestHelper" class.
 
-The checkMocksFromBundle method except as second parameter a closure. For each property defined in your JMOConfig file, a call to your closure will be made.
+The checkMocksFromBundle method requires, as second parameter, a closure. For each property defined in your JMOConfig file, a call to your closure will be made.
 
 This closure has as parameter a tuple which contain the propertyValue extracted from the JSON, and the corresponding property name.
 
@@ -105,5 +105,5 @@ Exemple of use :
                 XCTAssertNotNil(completion.attributeValue, "Check attributeKey : \(completion.attributeName)")
             }
         })
-**Warning: An xcode bug creates an error at the fifth call of XCTAssertNotNil with a nil object**
+**Warning: A xcode bug creates an error at the fifth call of XCTAssertNotNil with a nil object**
 
