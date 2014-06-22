@@ -32,7 +32,9 @@ Two kinds of object can be specified in this file:
 ###Configuration parameters
 To configure the parameters of the JsonManagedObject framework, you need to use the JMOConfig struct. With it, you can configure the 4 following parameters.
 
+
 **Envelope Format**
+
 Set to true if your JSON data are specified under a key value.
 
     JMOConfig.jsonWithEnvelope = true
@@ -45,17 +47,20 @@ And without the envelope:
 
     { "AircraftId": 1, "AircraftName": "Airbus" }
 
+
 **Date Format**
 
 Set the date format used to analyze your json.
 
     JMOConfig.dateFormat = "yyyy-MM-dd"
 
+
 **Managed Object Context**
 
 Set the managedObjectContext parameter to allow JsonManagedObject to instantiate an NSManagedObject.
 
     JMOConfig.managedObjectContext = yourManagedObjectContext
+
 
 **Temporary managed object**
 
