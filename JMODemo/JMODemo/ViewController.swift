@@ -36,7 +36,7 @@ class ViewController: UIViewController {
         
         // ------------------ Get Custom object from JSON ------------------
         //        let customObjectDict = dictionaryFromService("customObjectJson")
-        //        var customObject:CustomObject? = easyJsonSharedInstance.analyzeJsonDictionary(customObjectDict, forClass: CustomObject.self) as? CustomObject
+        //        var customObject:CustomObject? = jsonManagedObjectSharedInstance.analyzeJsonDictionary(customObjectDict, forClass: CustomObject.self) as? CustomObject
         
     }
     

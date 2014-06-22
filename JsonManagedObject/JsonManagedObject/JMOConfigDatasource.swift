@@ -44,7 +44,7 @@ class JMOConfigDatasource {
                     let configClassAttribute = configClass["attribute"]! as String
                     let configClassJsonKey = configClass["json"]! as String
                     
-                    var newClassInfo:JMOConfigModel.JMOParameterModel = JMOConfigModel.JMOParameterModel(attribute: configClassAttribute, jsonKey: configClassJsonKey)
+                    var newClassInfo = JMOConfigModel.JMOParameterModel(attribute: configClassAttribute, jsonKey: configClassJsonKey)
                     var newJMOObject = JMOConfigModel(classInfo: newClassInfo)
                     
                     // Attributes
@@ -53,7 +53,7 @@ class JMOConfigDatasource {
                         let parameterJsonKey = configParameter["json"]! as String
                         var parameterType = configParameter["type"] as? String
                         
-                        var newConfigParameter:JMOConfigModel.JMOParameterModel = JMOConfigModel.JMOParameterModel(attribute: parameterAttribute, jsonKey: parameterJsonKey, objectType: parameterType)
+                        var newConfigParameter = JMOConfigModel.JMOParameterModel(attribute: parameterAttribute, jsonKey: parameterJsonKey, objectType: parameterType)
                         newJMOObject.parameters += newConfigParameter
                     }
                     configObjects += newJMOObject

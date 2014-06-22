@@ -22,7 +22,7 @@ class JMODemoTests: XCTestCase {
     }
     
     
-    func testEasyJson() {
+    func testJsonManagedObject() {
         JMOConfig.jsonWithEnvelope = false
         JMOConfig.managedObjectContext = databaseManagerSharedInstance.databaseCore.managedObjectContext
 

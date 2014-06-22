@@ -34,8 +34,7 @@ class JsonManagedObject {
     // Analyze a dDictionary
     func analyzeJsonDictionary(jsonDictionary:Dictionary<String, AnyObject>, forClass objectClass:AnyClass) -> AnyObject? {
         // 1 - Find the config object for the specified class
-        let configObjectOptional = configDatasource[NSStringFromClass(objectClass)]
-        if let configObject = configObjectOptional {
+        if let configObject = configDatasource[NSStringFromClass(objectClass)] {
             
             // 2 - Json Dictionary
             var jsonFormatedDictionary = jsonDictionary

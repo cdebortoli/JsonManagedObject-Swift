@@ -35,10 +35,7 @@ extension NSManagedObject {
     // Retrieve formated property value from json
     func getValue(jmoParameter:JMOConfigModel.JMOParameterModel, fromJsonDictionary jsonDict:Dictionary<String, AnyObject>) -> AnyObject? {
         
-        // Property Description
         var propertyDescriptionOptional = getPropertyDescription(jmoParameter) as NSPropertyDescription?
-        
-        // Get formated property value
         if let propertyDescription = propertyDescriptionOptional {
             if propertyDescription is NSAttributeDescription {
 
