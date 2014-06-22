@@ -14,7 +14,6 @@
 		48337D651956332900AA03DE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 48337D641956332900AA03DE /* Images.xcassets */; };
 		48337D711956332900AA03DE /* JMODemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48337D701956332900AA03DE /* JMODemoTests.swift */; };
 		48337D851956338C00AA03DE /* JsonManagedObject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48337D821956334E00AA03DE /* JsonManagedObject.framework */; };
-		48337D881956339000AA03DE /* JsonManagedObject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48337D821956334E00AA03DE /* JsonManagedObject.framework */; };
 		48337D8D195633DB00AA03DE /* Aircraft.m in Sources */ = {isa = PBXBuildFile; fileRef = 48337D8C195633DB00AA03DE /* Aircraft.m */; };
 		48337D8E195633DB00AA03DE /* Aircraft.m in Sources */ = {isa = PBXBuildFile; fileRef = 48337D8C195633DB00AA03DE /* Aircraft.m */; };
 		48337D91195633DB00AA03DE /* Airport.m in Sources */ = {isa = PBXBuildFile; fileRef = 48337D90195633DB00AA03DE /* Airport.m */; };
@@ -31,7 +30,8 @@
 		48337DA51956344200AA03DE /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48337DA21956344200AA03DE /* DatabaseManager.swift */; };
 		48337DA61956344200AA03DE /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48337DA21956344200AA03DE /* DatabaseManager.swift */; };
 		48337DAC195634A100AA03DE /* JMOMockAircraft.json in Resources */ = {isa = PBXBuildFile; fileRef = 48337DA8195634A100AA03DE /* JMOMockAircraft.json */; };
-		48337DAD195634A100AA03DE /* JMOMockAircraftWithEnvelope.json in Resources */ = {isa = PBXBuildFile; fileRef = 48337DA9195634A100AA03DE /* JMOMockAircraftWithEnvelope.json */; };
+		48337DAD195634A100AA03DE /* JMOMockAircrafts.json in Resources */ = {isa = PBXBuildFile; fileRef = 48337DA9195634A100AA03DE /* JMOMockAircrafts.json */; };
+		486603EB1956D35600CAD5F0 /* JsonManagedObject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48337D821956334E00AA03DE /* JsonManagedObject.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +57,13 @@
 			remoteInfo = JsonManagedObjectTests;
 		};
 		48337D861956338D00AA03DE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 48337D4D1956332900AA03DE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 48337D541956332900AA03DE;
+			remoteInfo = JMODemo;
+		};
+		486603E71956D1FB00CAD5F0 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 48337D4D1956332900AA03DE /* Project object */;
 			proxyType = 1;
@@ -93,7 +100,7 @@
 		48337DA11956344200AA03DE /* DatabaseCore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseCore.swift; sourceTree = "<group>"; };
 		48337DA21956344200AA03DE /* DatabaseManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
 		48337DA8195634A100AA03DE /* JMOMockAircraft.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = JMOMockAircraft.json; sourceTree = "<group>"; };
-		48337DA9195634A100AA03DE /* JMOMockAircraftWithEnvelope.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = JMOMockAircraftWithEnvelope.json; sourceTree = "<group>"; };
+		48337DA9195634A100AA03DE /* JMOMockAircrafts.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = JMOMockAircrafts.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,7 +116,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				48337D881956339000AA03DE /* JsonManagedObject.framework in Frameworks */,
+				486603EB1956D35600CAD5F0 /* JsonManagedObject.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -218,7 +225,7 @@
 			isa = PBXGroup;
 			children = (
 				48337DA8195634A100AA03DE /* JMOMockAircraft.json */,
-				48337DA9195634A100AA03DE /* JMOMockAircraftWithEnvelope.json */,
+				48337DA9195634A100AA03DE /* JMOMockAircrafts.json */,
 			);
 			name = Mocks;
 			sourceTree = "<group>";
@@ -256,6 +263,7 @@
 			dependencies = (
 				48337D6C1956332900AA03DE /* PBXTargetDependency */,
 				48337D871956338D00AA03DE /* PBXTargetDependency */,
+				486603E81956D1FB00CAD5F0 /* PBXTargetDependency */,
 			);
 			name = JMODemoTests;
 			productName = JMODemoTests;
@@ -342,7 +350,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				48337DAC195634A100AA03DE /* JMOMockAircraft.json in Resources */,
-				48337DAD195634A100AA03DE /* JMOMockAircraftWithEnvelope.json in Resources */,
+				48337DAD195634A100AA03DE /* JMOMockAircrafts.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -389,6 +397,11 @@
 			isa = PBXTargetDependency;
 			target = 48337D541956332900AA03DE /* JMODemo */;
 			targetProxy = 48337D861956338D00AA03DE /* PBXContainerItemProxy */;
+		};
+		486603E81956D1FB00CAD5F0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 48337D541956332900AA03DE /* JMODemo */;
+			targetProxy = 486603E71956D1FB00CAD5F0 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 

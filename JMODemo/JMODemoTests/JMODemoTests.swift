@@ -24,11 +24,14 @@ class JMODemoTests: XCTestCase {
     
     func testEasyJson() {
         JMOConfig.jsonWithEnvelope = false
+        JMOConfig.managedObjectContext = databaseManagerSharedInstance.databaseCore.managedObjectContext
+
         JMOTestHelper.checkMocksFromBundle(NSBundle(forClass: self.dynamicType), {(completion:(attributeValue: AnyObject?, attributeName: String)) -> () in
             if completion.attributeValue is NSSet {
                 XCTAssert((completion.attributeValue as NSSet).count > 0, "Check relation : \(completion.attributeName)")
             } else {
                 XCTAssertNotNil(completion.attributeValue, "Check attributeKey : \(completion.attributeName)")
+            
             }
         })
         
