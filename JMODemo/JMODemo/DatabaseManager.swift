@@ -18,6 +18,6 @@ class DatabaseManager {
     }
     
     func rollbackContext() {
-        databaseCore.managedObjectContext.rollback()
+        databaseCore.managedObjectContext!.rollback()
     }
 }

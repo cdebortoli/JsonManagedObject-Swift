@@ -34,12 +34,13 @@ import Foundation
         
         if let property = propertyOptional {
             var x = property_getAttributes(property)
-            let propertyType = String.fromCString(property_getAttributes(property))
-            let propertyKey = String.fromCString(property_getName(property))
+            let propertyTypeOptional = String.fromCString(property_getAttributes(property))
+            let propertyKeyOptional = String.fromCString(property_getName(property))
             
             let jsonStringOptional = jsonDict[jmoParameter.jsonKey]! as? String
-            if let jsonString = jsonStringOptional {
-                switch(propertyType.substringFromIndex(1)) {
+            switch (propertyTypeOptional, propertyKeyOptional, jsonStringOptional) {
+            case (.Some(let propertyType), .Some(let propertyKey), .Some(let jsonString)):
+                switch(propertyType.substringFromIndex(advance(propertyType.startIndex, 1))) {
                 case "f":
                     println("\(propertyKey) is f")
                     return nil
@@ -58,6 +59,8 @@ import Foundation
                 default:
                     return nil
                 }
+            default:
+                return nil
             }
         }
         

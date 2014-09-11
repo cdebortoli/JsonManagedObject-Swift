@@ -27,7 +27,7 @@ class ViewController: UIViewController {
         
         // ------------------ Get multiple Aircrafts from JSON ------------------
         let aircraftArray = arrayFromJson("aircraftsJsonWithEnvelope")
-        var aircrafts = jsonManagedObjectSharedInstance.analyzeJsonArray(aircraftArray, forClass: Aircraft.classForCoder()) as Aircraft[]
+        var aircrafts = jsonManagedObjectSharedInstance.analyzeJsonArray(aircraftArray, forClass: Aircraft.classForCoder()) as [Aircraft]
         println(aircrafts)
         
         // ------------------ Get JSON from Aircraft ------------------
@@ -52,10 +52,10 @@ class ViewController: UIViewController {
         return json
     }
     
-    func arrayFromJson(service:String) -> AnyObject[] {
+    func arrayFromJson(service:String) -> [AnyObject] {
         let filepath = NSBundle.mainBundle().pathForResource(service, ofType: "json")
         let filecontent = NSData.dataWithContentsOfFile(filepath, options: nil, error: nil)
-        let json = NSJSONSerialization.JSONObjectWithData(filecontent, options: NSJSONReadingOptions.MutableContainers, error: nil) as AnyObject[]
+        let json = NSJSONSerialization.JSONObjectWithData(filecontent, options: NSJSONReadingOptions.MutableContainers, error: nil) as [AnyObject]
         return json
     }
 

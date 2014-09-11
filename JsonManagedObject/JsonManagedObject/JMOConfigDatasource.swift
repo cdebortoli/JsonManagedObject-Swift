@@ -9,7 +9,7 @@
 import Foundation
 
 class JMOConfigDatasource {
-    var jmoObjects = JMOConfigModel[]()
+    var jmoObjects = [JMOConfigModel]()
     
     init() {
         jmoObjects = parseConfigObjectsFromConfigFile()
@@ -30,11 +30,11 @@ class JMOConfigDatasource {
         return nil
     }
     
-    func parseConfigObjectsFromConfigFile() -> JMOConfigModel[] {
-        var configObjects = JMOConfigModel[]()
+    func parseConfigObjectsFromConfigFile() -> [JMOConfigModel] {
+        var configObjects = [JMOConfigModel]()
         if let data = readConfigFile() {
             
-            let jsonArray = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error:nil) as AnyObject[]
+            let jsonArray = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error:nil) as [AnyObject]
             
             for configOccurenceOpt : AnyObject in jsonArray {
                 if let configOccurence = configOccurenceOpt as? NSDictionary {
@@ -48,15 +48,15 @@ class JMOConfigDatasource {
                     var newJMOObject = JMOConfigModel(classInfo: newClassInfo)
                     
                     // Attributes
-                    for configParameter in configOccurence["parameters"]! as NSDictionary[] {
+                    for configParameter in configOccurence["parameters"]! as [NSDictionary] {
                         let parameterAttribute = configParameter["attribute"]! as String
                         let parameterJsonKey = configParameter["json"]! as String
                         var parameterType = configParameter["type"] as? String
                         
                         var newConfigParameter = JMOConfigModel.JMOParameterModel(attribute: parameterAttribute, jsonKey: parameterJsonKey, objectType: parameterType)
-                        newJMOObject.parameters += newConfigParameter
+                        newJMOObject.parameters.append(newConfigParameter)
                     }
-                    configObjects += newJMOObject
+                    configObjects.append(newJMOObject)
                 }
             }
         }

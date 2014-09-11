@@ -12,19 +12,19 @@ let jsonManagedObjectSharedInstance = JsonManagedObject()
 
 class JsonManagedObject {
     let dateFormatter = NSDateFormatter()
-    @lazy var configDatasource = JMOConfigDatasource()
+    lazy var configDatasource = JMOConfigDatasource()
     
     init() {
         dateFormatter.dateFormat = JMOConfig.dateFormat
     }
     
     // Analyze an array of Dictionary
-    func analyzeJsonArray(jsonArray:AnyObject[], forClass objectClass:AnyClass) -> AnyObject[] {
-        var resultArray = AnyObject[]()
+    func analyzeJsonArray(jsonArray:[AnyObject], forClass objectClass:AnyClass) -> [AnyObject] {
+        var resultArray = [AnyObject]()
         for jsonArrayOccurence:AnyObject in jsonArray {
             if let jsonDict = jsonArrayOccurence as? Dictionary<String, AnyObject> {
                 if let objectFromJson : AnyObject = analyzeJsonDictionary(jsonDict, forClass: objectClass) {
-                    resultArray += objectFromJson
+                    resultArray.append(objectFromJson)
                 }
             }
         }
@@ -54,15 +54,20 @@ class JsonManagedObject {
                 var managedObject:NSManagedObject
                 if JMOConfig.temporaryNSManagedObjectInstance == false {
                     managedObject = NSEntityDescription.insertNewObjectForEntityForName(NSStringFromClass(objectClass), inManagedObjectContext: JMOConfig.managedObjectContext!) as NSManagedObject
+                    for parameter in configObject.parameters {
+                        managedObject.setProperty(parameter, fromJson: jsonFormatedDictionary)
+                    }
+                    return managedObject
                 } else {
-                    let entityDescription = NSEntityDescription.entityForName(NSStringFromClass(objectClass), inManagedObjectContext: JMOConfig.managedObjectContext)
-                    managedObject = NSManagedObject(entity: entityDescription, insertIntoManagedObjectContext: nil)
+                    let entityDescriptionOptional = NSEntityDescription.entityForName(NSStringFromClass(objectClass), inManagedObjectContext: JMOConfig.managedObjectContext!)
+                    if let entityDescription = entityDescriptionOptional {
+                        managedObject = NSManagedObject(entity: entityDescription, insertIntoManagedObjectContext: nil)
+                        for parameter in configObject.parameters {
+                            managedObject.setProperty(parameter, fromJson: jsonFormatedDictionary)
+                        }
+                        return managedObject
+                    }
                 }
-                
-                for parameter in configObject.parameters {
-                    managedObject.setProperty(parameter, fromJson: jsonFormatedDictionary)
-                }
-                return managedObject
             // 3b - CustomObject Parse & init
             } else if class_getSuperclass(objectClass) is JMOWrapper.Type {
                 var cobject : AnyObject! = JMOClassFactory.initObjectFromClass(objectClass)

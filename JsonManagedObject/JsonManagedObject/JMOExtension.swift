@@ -48,7 +48,7 @@ extension NSManagedObject {
                 
             } else if propertyDescription is NSRelationshipDescription {
 
-                if let jsonArray = jsonDict[jmoParameter.jsonKey]! as? Dictionary<String, AnyObject>[] {
+                if let jsonArray = jsonDict[jmoParameter.jsonKey]! as? [Dictionary<String, AnyObject>] {
                     return (propertyDescription as NSRelationshipDescription).getRelationshipValueForJmoJsonArray(jsonArray)
                 } else if let jsonDictRelation = jsonDict[jmoParameter.jsonKey]! as? Dictionary<String, AnyObject> {
                     return jsonManagedObjectSharedInstance.analyzeJsonDictionary(jsonDictRelation, forClass: NSClassFromString((propertyDescription as NSRelationshipDescription).destinationEntity.managedObjectClassName))
@@ -62,24 +62,24 @@ extension NSManagedObject {
     /*
     * SWIFT -> JSON
     */
-    func getJmoJson(relationshipClassesToIgnore:String[] = String[]()) -> Dictionary <String, AnyObject>{
+    func getJmoJson(relationshipClassesToIgnore:[String] = [String]()) -> Dictionary <String, AnyObject>{
         var jsonDict = Dictionary <String, AnyObject>()
         
-        var newRelationshipClassesToIgnore = String[]()
+        var newRelationshipClassesToIgnore = [String]()
         newRelationshipClassesToIgnore += relationshipClassesToIgnore
-        newRelationshipClassesToIgnore += NSStringFromClass(self.classForCoder)
+        newRelationshipClassesToIgnore.append(NSStringFromClass(self.classForCoder))
 
         if let configObject = jsonManagedObjectSharedInstance.configDatasource[NSStringFromClass(self.classForCoder)] {
             for parameter in configObject.parameters {
                 if let managedObjectValue:AnyObject? = self.valueForKey(parameter.attribute) {
                     
                     if managedObjectValue is NSSet {
-                        var relationshipObjects = AnyObject[]()
+                        var relationshipObjects = [AnyObject]()
                         setloop: for objectFromSet:AnyObject in (managedObjectValue as NSSet).allObjects {
                             if (contains(newRelationshipClassesToIgnore, NSStringFromClass(objectFromSet.classForCoder))) {
                                 break setloop
                             }
-                            relationshipObjects += (objectFromSet as NSManagedObject).getJmoJson(relationshipClassesToIgnore: newRelationshipClassesToIgnore)
+                            relationshipObjects.append((objectFromSet as NSManagedObject).getJmoJson(relationshipClassesToIgnore: newRelationshipClassesToIgnore))
                         }
                         if !relationshipObjects.isEmpty {
                             jsonDict[parameter.jsonKey] = relationshipObjects
@@ -122,10 +122,12 @@ extension NSAttributeDescription {
 }
 
 extension NSRelationshipDescription {
-    func getRelationshipValueForJmoJsonArray(jsonArray:Dictionary<String, AnyObject>[]) -> NSMutableSet {
+    func getRelationshipValueForJmoJsonArray(jsonArray:[Dictionary<String, AnyObject>]) -> NSMutableSet {
         var relationshipSet = NSMutableSet()
         for jsonValue in jsonArray  {
-            relationshipSet.addObject(jsonManagedObjectSharedInstance.analyzeJsonDictionary(jsonValue, forClass: NSClassFromString(self.destinationEntity.managedObjectClassName)))
+            if let relationshipObject: AnyObject = jsonManagedObjectSharedInstance.analyzeJsonDictionary(jsonValue, forClass: NSClassFromString(self.destinationEntity.managedObjectClassName)) {
+                relationshipSet.addObject(relationshipObject)
+            }
         }
         return relationshipSet
     }

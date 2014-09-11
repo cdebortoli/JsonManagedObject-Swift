@@ -18,7 +18,7 @@ class JMOTestHelper {
         for object:AnyObject in getObjectParsed(bundle) {
             
             // NSManagedObject
-            if object.superclass() is NSManagedObject.Type {
+            if object.superclass is NSManagedObject.Type {
         
                 if let configObject = jsonManagedObjectSharedInstance.configDatasource[NSStringFromClass(object.classForCoder)] {
                     
@@ -37,15 +37,15 @@ class JMOTestHelper {
                     
                 }
             // JMOWrapper
-            } else if object.superclass() is JMOWrapper.Type {
+            } else if object.superclass is JMOWrapper.Type {
                 //                TODO When SWIFT will manage get property of optionals
             }
         }
     }
     
     // Return an array of NSManagedObject and JMOWrapper object with data loaded from json mocks
-    class func getObjectParsed(bundle:NSBundle) -> AnyObject[] {
-        var objectsParsed = AnyObject[]()
+    class func getObjectParsed(bundle:NSBundle) -> [AnyObject] {
+        var objectsParsed = [AnyObject]()
         for mockFilepath in self.getMockJson(bundle) {
             
             // Mock Data
@@ -66,12 +66,12 @@ class JMOTestHelper {
                     if (mockJson is Dictionary<String, AnyObject>) {
                         var objectOptional:AnyObject? = jsonManagedObjectSharedInstance.analyzeJsonDictionary(mockJson as Dictionary<String, AnyObject>, forClass:mockClass)
                         if let object : AnyObject = objectOptional {
-                            objectsParsed += object
+                            objectsParsed.append(object)
                         }
                     // Array
-                    } else if (mockJson is AnyObject[]) {
-                        var objects = jsonManagedObjectSharedInstance.analyzeJsonArray(mockJson as AnyObject[], forClass: mockClass)
-                        objectsParsed += objects
+                    } else if (mockJson is [AnyObject]) {
+                        var objects = jsonManagedObjectSharedInstance.analyzeJsonArray(mockJson as [AnyObject], forClass: mockClass)
+                        objectsParsed.append(objects)
                     }
                 }
                 
@@ -81,13 +81,14 @@ class JMOTestHelper {
     }
     
     // Search the mock files in the specified bundle
-    class func getMockJson(bundle:NSBundle) -> String[] {
-        var filepaths = String[]()
-        let fileEnumerator = NSFileManager.defaultManager().enumeratorAtPath(bundle.bundlePath)
-            
-        while let filepath = fileEnumerator.nextObject() as? String {
-            if (filepath.pathExtension == "json") && (countElements(filepath) > 7) && (filepath.substringToIndex(7) == "JMOMock") {
-                filepaths += "\(bundle.bundlePath)/\(filepath)"
+    class func getMockJson(bundle:NSBundle) -> [String] {
+        var filepaths = [String]()
+        let fileEnumeratorOptional = NSFileManager.defaultManager().enumeratorAtPath(bundle.bundlePath)
+        if let fileEnumerator = fileEnumeratorOptional {
+            while let filepath = fileEnumerator.nextObject() as? String {
+                if (filepath.pathExtension == "json") && (countElements(filepath) > 7) && (filepath.substringToIndex(advance(filepath.startIndex, 7)) == "JMOMock") {
+                    filepaths.append("\(bundle.bundlePath)/\(filepath)")
+                }
             }
         }
         return filepaths

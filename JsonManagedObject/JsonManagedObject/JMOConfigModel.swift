@@ -11,7 +11,7 @@ import Foundation
 class JMOConfigModel {
     
     var classInfo:JMOParameterModel
-    var parameters = JMOParameterModel[]()
+    var parameters = [JMOParameterModel]()
     
     init(classInfo:JMOParameterModel) {
         self.classInfo = classInfo
