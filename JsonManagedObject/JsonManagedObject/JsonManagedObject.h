@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <CoreData/CoreData.h>
+#import <Foundation/Foundation.h>
 
 //! Project version number for JsonManagedObject.
 FOUNDATION_EXPORT double JsonManagedObjectVersionNumber;

@@ -8,20 +8,20 @@
 
 import Foundation
 
-class JMOConfigDatasource {
-    var jmoObjects = [JMOConfigModel]()
+internal class JMOConfigDatasource {
+    internal var jmoObjects = [JMOConfigModel]()
     
-    init() {
+    internal init() {
         jmoObjects = parseConfigObjectsFromConfigFile()
     }
     
-    subscript(attributeType: String) -> JMOConfigModel? {
+    internal subscript(attributeType: String) -> JMOConfigModel? {
         get {
             return getConfigForType(attributeType)
         }
     }
     
-    func getConfigForType(attributeType:String) -> JMOConfigModel? {
+    internal func getConfigForType(attributeType:String) -> JMOConfigModel? {
         for jmoObject in jmoObjects {
             if jmoObject.classInfo.attribute == attributeType {
                 return jmoObject
@@ -30,7 +30,7 @@ class JMOConfigDatasource {
         return nil
     }
     
-    func parseConfigObjectsFromConfigFile() -> [JMOConfigModel] {
+    internal func parseConfigObjectsFromConfigFile() -> [JMOConfigModel] {
         var configObjects = [JMOConfigModel]()
         if let data = readConfigFile() {
             
@@ -64,7 +64,7 @@ class JMOConfigDatasource {
         return configObjects
     }
     
-    func readConfigFile() -> NSData? {
+    internal func readConfigFile() -> NSData? {
         let configFilepath:String? = NSBundle.mainBundle().pathForResource("JMOConfigTemplate", ofType: "json")
         if let filepath = configFilepath {
             var errorFilepath:NSError?

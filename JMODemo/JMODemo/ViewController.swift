@@ -21,18 +21,22 @@ class ViewController: UIViewController {
         JMOConfig.temporaryNSManagedObjectInstance = true
         
         // ------------------ Get Aircraft from JSON ------------------
-        let dict = dictionaryFromService("aircraftJsonWithEnvelope")
-        var aircraft:Aircraft? = jsonManagedObjectSharedInstance.analyzeJsonDictionary(dict, forClass:Aircraft.classForCoder()) as? Aircraft
-        println(aircraft)
+        let dictOptional = dictionaryFromService("aircraftJsonWithEnvelope")
+        if let dict = dictOptional {
+            var aircraft:Aircraft? = jsonManagedObjectSharedInstance.analyzeJsonDictionary(dict, forClass:Aircraft.classForCoder()) as? Aircraft
+            println(aircraft)
+            
+            // ------------------ Get JSON from Aircraft ------------------
+            let aircraftJsonRepresentation = aircraft?.getJmoJson()
+            println(aircraftJsonRepresentation)
+        }
         
         // ------------------ Get multiple Aircrafts from JSON ------------------
-        let aircraftArray = arrayFromJson("aircraftsJsonWithEnvelope")
-        var aircrafts = jsonManagedObjectSharedInstance.analyzeJsonArray(aircraftArray, forClass: Aircraft.classForCoder()) as [Aircraft]
-        println(aircrafts)
-        
-        // ------------------ Get JSON from Aircraft ------------------
-        let aircraftJsonRepresentation = aircraft?.getJmoJson()
-        println(aircraftJsonRepresentation)
+        let aircraftArrayOptional = arrayFromJson("aircraftsJsonWithEnvelope")
+        if let aircraftArray = aircraftArrayOptional {
+            var aircrafts = jsonManagedObjectSharedInstance.analyzeJsonArray(aircraftArray, forClass: Aircraft.classForCoder()) as [Aircraft]
+            println(aircrafts)
+        }
         
         // ------------------ Get Custom object from JSON ------------------
         //        let customObjectDict = dictionaryFromService("customObjectJson")
@@ -45,18 +49,24 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    func dictionaryFromService(service:String) -> Dictionary<String,AnyObject> {
-        let filepath = NSBundle.mainBundle().pathForResource(service, ofType: "json")
-        let filecontent = NSData.dataWithContentsOfFile(filepath, options: nil, error: nil)
-        let json = NSJSONSerialization.JSONObjectWithData(filecontent, options: NSJSONReadingOptions.MutableContainers, error: nil) as Dictionary<String, AnyObject>
-        return json
+    func dictionaryFromService(service:String) -> Dictionary<String,AnyObject>? {
+        let filepathOptional = NSBundle.mainBundle().pathForResource(service, ofType: "json")
+        if let filepath = filepathOptional {
+            let filecontent = NSData.dataWithContentsOfFile(filepath, options: nil, error: nil)
+            let json = NSJSONSerialization.JSONObjectWithData(filecontent, options: NSJSONReadingOptions.MutableContainers, error: nil) as Dictionary<String, AnyObject>
+            return json
+        }
+        return nil
     }
     
-    func arrayFromJson(service:String) -> [AnyObject] {
-        let filepath = NSBundle.mainBundle().pathForResource(service, ofType: "json")
-        let filecontent = NSData.dataWithContentsOfFile(filepath, options: nil, error: nil)
-        let json = NSJSONSerialization.JSONObjectWithData(filecontent, options: NSJSONReadingOptions.MutableContainers, error: nil) as [AnyObject]
-        return json
+    func arrayFromJson(service:String) -> [AnyObject]? {
+        let filepathOptional = NSBundle.mainBundle().pathForResource(service, ofType: "json")
+        if let filepath = filepathOptional {
+            let filecontent = NSData.dataWithContentsOfFile(filepath, options: nil, error: nil)
+            let json = NSJSONSerialization.JSONObjectWithData(filecontent, options: NSJSONReadingOptions.MutableContainers, error: nil) as [AnyObject]
+            return json
+        }
+        return nil
     }
 
 

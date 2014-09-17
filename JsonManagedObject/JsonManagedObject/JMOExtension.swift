@@ -10,13 +10,13 @@ import Foundation
 import CoreData
 import JsonManagedObject
 
-extension NSManagedObject {
+public extension NSManagedObject {
     /*
     * JSON -> SWIFT
     */
     
     // Set property value
-    func setProperty(jmoParameter:JMOConfigModel.JMOParameterModel, fromJson jsonDict:Dictionary<String, AnyObject>) {
+    internal func setProperty(jmoParameter:JMOConfigModel.JMOParameterModel, fromJson jsonDict:Dictionary<String, AnyObject>) {
         if jsonDict[jmoParameter.jsonKey] != nil {
             if let managedObjectValue : AnyObject = getValue(jmoParameter, fromJsonDictionary: jsonDict) {
                 setValue(managedObjectValue, forKey: jmoParameter.attribute)
@@ -25,7 +25,7 @@ extension NSManagedObject {
     }
     
     // Get NSPropertyDescription
-    func getPropertyDescription(jmoParameter:JMOConfigModel.JMOParameterModel) -> NSPropertyDescription? {
+    internal func getPropertyDescription(jmoParameter:JMOConfigModel.JMOParameterModel) -> NSPropertyDescription? {
         if let propertyDescription = self.entity.propertiesByName[jmoParameter.attribute] as? NSPropertyDescription {
             return propertyDescription
         }
@@ -33,7 +33,7 @@ extension NSManagedObject {
     }
     
     // Retrieve formated property value from json
-    func getValue(jmoParameter:JMOConfigModel.JMOParameterModel, fromJsonDictionary jsonDict:Dictionary<String, AnyObject>) -> AnyObject? {
+    internal func getValue(jmoParameter:JMOConfigModel.JMOParameterModel, fromJsonDictionary jsonDict:Dictionary<String, AnyObject>) -> AnyObject? {
         
         var propertyDescriptionOptional = getPropertyDescription(jmoParameter) as NSPropertyDescription?
         if let propertyDescription = propertyDescriptionOptional {
@@ -62,7 +62,7 @@ extension NSManagedObject {
     /*
     * SWIFT -> JSON
     */
-    func getJmoJson(relationshipClassesToIgnore:[String] = [String]()) -> Dictionary <String, AnyObject>{
+    public func getJmoJson(relationshipClassesToIgnore:[String] = [String]()) -> Dictionary <String, AnyObject>{
         var jsonDict = Dictionary <String, AnyObject>()
         
         var newRelationshipClassesToIgnore = [String]()
@@ -100,8 +100,8 @@ extension NSManagedObject {
     }
 }
 
-extension NSAttributeDescription {
-    func getAttributeValueForJmoJsonValue(jsonValue:String) -> AnyObject? {
+internal extension NSAttributeDescription {
+    internal func getAttributeValueForJmoJsonValue(jsonValue:String) -> AnyObject? {
         switch(self.attributeType){
         case .DateAttributeType:
             return jsonManagedObjectSharedInstance.dateFormatter.dateFromString(jsonValue)
@@ -121,8 +121,8 @@ extension NSAttributeDescription {
     }
 }
 
-extension NSRelationshipDescription {
-    func getRelationshipValueForJmoJsonArray(jsonArray:[Dictionary<String, AnyObject>]) -> NSMutableSet {
+internal extension NSRelationshipDescription {
+    internal func getRelationshipValueForJmoJsonArray(jsonArray:[Dictionary<String, AnyObject>]) -> NSMutableSet {
         var relationshipSet = NSMutableSet()
         for jsonValue in jsonArray  {
             if let relationshipObject: AnyObject = jsonManagedObjectSharedInstance.analyzeJsonDictionary(jsonValue, forClass: NSClassFromString(self.destinationEntity.managedObjectClassName)) {

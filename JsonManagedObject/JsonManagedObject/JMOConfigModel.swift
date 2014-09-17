@@ -8,16 +8,16 @@
 
 import Foundation
 
-class JMOConfigModel {
+public class JMOConfigModel {
     
-    var classInfo:JMOParameterModel
-    var parameters = [JMOParameterModel]()
+    public var classInfo:JMOParameterModel
+    public var parameters = [JMOParameterModel]()
     
-    init(classInfo:JMOParameterModel) {
+    public init(classInfo:JMOParameterModel) {
         self.classInfo = classInfo
     }
     
-    subscript(index: Int) -> JMOParameterModel {
+    public subscript(index: Int) -> JMOParameterModel {
         get {
             return parameters[index]
         }
@@ -27,18 +27,18 @@ class JMOConfigModel {
     }
     
     // Parameter object
-    class JMOParameterModel {
-        let attribute:String
-        let objectType:String?
-        let jsonKey:String
+    public class JMOParameterModel {
+        public let attribute:String
+        public let objectType:String?
+        public let jsonKey:String
         
-        init(attribute:String, jsonKey:String, objectType:String?) {
+        public init(attribute:String, jsonKey:String, objectType:String?) {
             self.attribute = attribute
             self.jsonKey = jsonKey
             self.objectType = objectType
         }
         
-        convenience init(attribute:String, jsonKey:String) {
+        public convenience init(attribute:String, jsonKey:String) {
             self.init(attribute: attribute, jsonKey: jsonKey, objectType: nil)
         }
     }

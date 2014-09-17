@@ -8,18 +8,18 @@
 
 import Foundation
 
-let jsonManagedObjectSharedInstance = JsonManagedObject()
+public let jsonManagedObjectSharedInstance = JsonManagedObject()
 
-class JsonManagedObject {
-    let dateFormatter = NSDateFormatter()
-    lazy var configDatasource = JMOConfigDatasource()
+public class JsonManagedObject {
+    public let dateFormatter = NSDateFormatter()
+    internal lazy var configDatasource = JMOConfigDatasource()
     
-    init() {
+    public init() {
         dateFormatter.dateFormat = JMOConfig.dateFormat
     }
     
     // Analyze an array of Dictionary
-    func analyzeJsonArray(jsonArray:[AnyObject], forClass objectClass:AnyClass) -> [AnyObject] {
+    public func analyzeJsonArray(jsonArray:[AnyObject], forClass objectClass:AnyClass) -> [AnyObject] {
         var resultArray = [AnyObject]()
         for jsonArrayOccurence:AnyObject in jsonArray {
             if let jsonDict = jsonArrayOccurence as? Dictionary<String, AnyObject> {
@@ -32,7 +32,7 @@ class JsonManagedObject {
     }
     
     // Analyze a dDictionary
-    func analyzeJsonDictionary(jsonDictionary:Dictionary<String, AnyObject>, forClass objectClass:AnyClass) -> AnyObject? {
+    public func analyzeJsonDictionary(jsonDictionary:Dictionary<String, AnyObject>, forClass objectClass:AnyClass) -> AnyObject? {
         // 1 - Find the config object for the specified class
         if let configObject = configDatasource[NSStringFromClass(objectClass)] {
             

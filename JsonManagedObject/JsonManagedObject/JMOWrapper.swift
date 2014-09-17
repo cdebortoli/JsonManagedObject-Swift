@@ -8,11 +8,11 @@
 
 import Foundation
 
-@objc(JMOWrapper) class JMOWrapper : NSObject {
+@objc(JMOWrapper) public class JMOWrapper : NSObject {
     
-    var childrenClassReference:AnyClass?
+    internal var childrenClassReference:AnyClass?
     
-    func setParameter(jmoParameter:AnyObject, fromJson jsonDict:Dictionary<String, AnyObject>)
+    internal func setParameter(jmoParameter:AnyObject, fromJson jsonDict:Dictionary<String, AnyObject>)
     {
         if let parameter = jmoParameter as? JMOConfigModel.JMOParameterModel {
             
@@ -24,7 +24,7 @@ import Foundation
         }
     }
     
-    func getValue(jmoParameter:JMOConfigModel.JMOParameterModel, fromJson jsonDict:Dictionary<String, AnyObject>) -> AnyObject? {
+    internal func getValue(jmoParameter:JMOConfigModel.JMOParameterModel, fromJson jsonDict:Dictionary<String, AnyObject>) -> AnyObject? {
         
         var propertyOptional:objc_property_t? = nil
         if let childrenClass:AnyClass = childrenClassReference {

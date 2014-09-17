@@ -9,11 +9,11 @@
 import Foundation
 import CoreData
 
-class JMOTestHelper {
+public class JMOTestHelper {
     
     // For the specified managed objects, completion closure called for each parameter
     // Tuple = Value parsed (if exist) and attribute name
-    class func checkMocksFromBundle(bundle:NSBundle, completion: ((attributeValue:AnyObject?, attributeName:String)) -> ())
+    public class func checkMocksFromBundle(bundle:NSBundle, completion: ((attributeValue:AnyObject?, attributeName:String)) -> ())
     {
         for object:AnyObject in getObjectParsed(bundle) {
             
@@ -44,7 +44,7 @@ class JMOTestHelper {
     }
     
     // Return an array of NSManagedObject and JMOWrapper object with data loaded from json mocks
-    class func getObjectParsed(bundle:NSBundle) -> [AnyObject] {
+    public class func getObjectParsed(bundle:NSBundle) -> [AnyObject] {
         var objectsParsed = [AnyObject]()
         for mockFilepath in self.getMockJson(bundle) {
             
@@ -81,7 +81,7 @@ class JMOTestHelper {
     }
     
     // Search the mock files in the specified bundle
-    class func getMockJson(bundle:NSBundle) -> [String] {
+    private class func getMockJson(bundle:NSBundle) -> [String] {
         var filepaths = [String]()
         let fileEnumeratorOptional = NSFileManager.defaultManager().enumeratorAtPath(bundle.bundlePath)
         if let fileEnumerator = fileEnumeratorOptional {

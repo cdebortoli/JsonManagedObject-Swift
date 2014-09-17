@@ -9,11 +9,11 @@
 import Foundation
 import CoreData
 
-struct JMOConfig {
-    static var dateFormat = "yyyy-MM-dd"
-    static var jsonWithEnvelope = false
-    static var managedObjectContext:NSManagedObjectContext?
-    static var temporaryNSManagedObjectInstance = false
+public struct JMOConfig {
+    public static var dateFormat = "yyyy-MM-dd"
+    public static var jsonWithEnvelope = false
+    public static var managedObjectContext:NSManagedObjectContext?
+    public static var temporaryNSManagedObjectInstance = false
 }
 
 
