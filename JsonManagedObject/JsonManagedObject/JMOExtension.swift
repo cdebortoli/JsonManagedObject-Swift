@@ -16,7 +16,7 @@ public extension NSManagedObject {
     */
     
     // Set property value
-    internal func setProperty(jmoParameter:JMOConfigModel.JMOParameterModel, fromJson jsonDict:Dictionary<String, AnyObject>) {
+    internal func setProperty(jmoParameter:JMOConfigModel.JMOParameterModel, fromJson jsonDict:[String: AnyObject]) {
         if jsonDict[jmoParameter.jsonKey] != nil {
             if let managedObjectValue : AnyObject = getValue(jmoParameter, fromJsonDictionary: jsonDict) {
                 setValue(managedObjectValue, forKey: jmoParameter.attribute)
@@ -33,7 +33,7 @@ public extension NSManagedObject {
     }
     
     // Retrieve formated property value from json
-    internal func getValue(jmoParameter:JMOConfigModel.JMOParameterModel, fromJsonDictionary jsonDict:Dictionary<String, AnyObject>) -> AnyObject? {
+    internal func getValue(jmoParameter:JMOConfigModel.JMOParameterModel, fromJsonDictionary jsonDict:[String: AnyObject]) -> AnyObject? {
         
         var propertyDescriptionOptional = getPropertyDescription(jmoParameter) as NSPropertyDescription?
         if let propertyDescription = propertyDescriptionOptional {
@@ -48,9 +48,9 @@ public extension NSManagedObject {
                 
             } else if propertyDescription is NSRelationshipDescription {
 
-                if let jsonArray = jsonDict[jmoParameter.jsonKey]! as? [Dictionary<String, AnyObject>] {
+                if let jsonArray = jsonDict[jmoParameter.jsonKey]! as? [[String: AnyObject]] {
                     return (propertyDescription as NSRelationshipDescription).getRelationshipValueForJmoJsonArray(jsonArray)
-                } else if let jsonDictRelation = jsonDict[jmoParameter.jsonKey]! as? Dictionary<String, AnyObject> {
+                } else if let jsonDictRelation = jsonDict[jmoParameter.jsonKey]! as? [String: AnyObject] {
                     return jsonManagedObjectSharedInstance.analyzeJsonDictionary(jsonDictRelation, forClass: NSClassFromString((propertyDescription as NSRelationshipDescription).destinationEntity.managedObjectClassName))
                 }
                 
@@ -122,7 +122,7 @@ internal extension NSAttributeDescription {
 }
 
 internal extension NSRelationshipDescription {
-    internal func getRelationshipValueForJmoJsonArray(jsonArray:[Dictionary<String, AnyObject>]) -> NSMutableSet {
+    internal func getRelationshipValueForJmoJsonArray(jsonArray:[[String: AnyObject]]) -> NSMutableSet {
         var relationshipSet = NSMutableSet()
         for jsonValue in jsonArray  {
             if let relationshipObject: AnyObject = jsonManagedObjectSharedInstance.analyzeJsonDictionary(jsonValue, forClass: NSClassFromString(self.destinationEntity.managedObjectClassName)) {

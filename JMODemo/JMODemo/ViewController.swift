@@ -39,8 +39,10 @@ class ViewController: UIViewController {
         }
         
         // ------------------ Get Custom object from JSON ------------------
-        //        let customObjectDict = dictionaryFromService("customObjectJson")
-        //        var customObject:CustomObject? = jsonManagedObjectSharedInstance.analyzeJsonDictionary(customObjectDict, forClass: CustomObject.self) as? CustomObject
+//        let customObjectDictOptional = dictionaryFromService("customObjectJson")
+//        if let customObjectDict = customObjectDictOptional {
+//            var customObject:CustomObject? = jsonManagedObjectSharedInstance.analyzeJsonDictionary(customObjectDict, forClass: CustomObject.self) as? CustomObject
+//        }
         
     }
     
@@ -49,11 +51,11 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    func dictionaryFromService(service:String) -> Dictionary<String,AnyObject>? {
+    func dictionaryFromService(service:String) -> [String: AnyObject]? {
         let filepathOptional = NSBundle.mainBundle().pathForResource(service, ofType: "json")
         if let filepath = filepathOptional {
             let filecontent = NSData.dataWithContentsOfFile(filepath, options: nil, error: nil)
-            let json = NSJSONSerialization.JSONObjectWithData(filecontent, options: NSJSONReadingOptions.MutableContainers, error: nil) as Dictionary<String, AnyObject>
+            let json = NSJSONSerialization.JSONObjectWithData(filecontent, options: NSJSONReadingOptions.MutableContainers, error: nil) as [String: AnyObject]
             return json
         }
         return nil

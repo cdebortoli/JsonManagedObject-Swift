@@ -12,26 +12,29 @@ import Foundation
     
     internal var childrenClassReference:AnyClass?
     
-    internal func setParameter(jmoParameter:AnyObject, fromJson jsonDict:Dictionary<String, AnyObject>)
+    internal func setParameter(jmoParameter:AnyObject, fromJson jsonDict:[String: AnyObject])
     {
         if let parameter = jmoParameter as? JMOConfigModel.JMOParameterModel {
             
             if jsonDict[parameter.jsonKey] != nil {
-//                                if let objectValue : AnyObject = getValue(parameter, fromJson: jsonDict) {
-                //                    setValue(objectValue, forKey: parameter.attribute)
-//                                }
+                if let objectValue : AnyObject = getValue(parameter, fromJson: jsonDict) {
+                    setValue(objectValue, forKey: parameter.attribute)
+                }
             }
         }
     }
     
-    internal func getValue(jmoParameter:JMOConfigModel.JMOParameterModel, fromJson jsonDict:Dictionary<String, AnyObject>) -> AnyObject? {
+//    TODO : see reflect method
+// Note : Cast anyClass to nsobject.Type to be able to init it
+//var clz: NSObject.Type = myAnyClass as NSObject.Type
+    internal func getValue(jmoParameter:JMOConfigModel.JMOParameterModel, fromJson jsonDict:[String: AnyObject]) -> AnyObject? {
         
         var propertyOptional:objc_property_t? = nil
         if let childrenClass:AnyClass = childrenClassReference {
-            //            propertyOptional = class_getProperty(childrenClass, parameter.attribute.bridgeToObjectiveC().UTF8String) as objc_property_t?
-            //            propertyOptional = ClassFactory.getPropertyFor(childrenClass, andPropertyName: parameter.attribute)
+                        propertyOptional = class_getProperty(childrenClass, jmoParameter.attribute) as objc_property_t?
+//                        propertyOptional = ClassFactory.getPropertyFor(childrenClass, andPropertyName: parameter.attribute)
         }
-        
+        println(propertyOptional)
         if let property = propertyOptional {
             var x = property_getAttributes(property)
             let propertyTypeOptional = String.fromCString(property_getAttributes(property))

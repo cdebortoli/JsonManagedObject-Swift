@@ -1,14 +1,17 @@
 {
-    "customAttrString": "dfdsds",
-    "customAttrDate":"2013-01-01",
-    "customAttrNumber": "13.4",
-    "customAttrInteger": "0",
-    "customAttrData": "",
-    "customAttrInt": 2,
-    "customAttrBool": true,
-    "customAttrDouble": "222222",
-    "customAttrLong": "234",
-    "customAttrFloat": "23.4",
-    "customAttrArray": [ { "customAttrString": "hello" }, { "customAttrString": "hello2" } ],
-    "customAttrDictionary": { "a" : { "customAttrString": "Hi" }, "b" : { "customAttrString" : "hi2" } }
+    "customObject": {
+
+        "customAttrString": "dfdsds",
+        "customAttrDate":"2013-01-01",
+        "customAttrNumber": "13.4",
+        "customAttrInteger": "0",
+        "customAttrData": "",
+        "customAttrInt": 2,
+        "customAttrBool": true,
+        "customAttrDouble": "222222",
+        "customAttrLong": "234",
+        "customAttrFloat": "23.4",
+        "customAttrArray": [ { "customAttrString": "hello" }, { "customAttrString": "hello2" } ],
+        "customAttrDictionary": { "a" : { "customAttrString": "Hi" }, "b" : { "customAttrString" : "hi2" } }
+    }
 }

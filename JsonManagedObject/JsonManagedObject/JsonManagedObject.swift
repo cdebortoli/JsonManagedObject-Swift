@@ -22,7 +22,7 @@ public class JsonManagedObject {
     public func analyzeJsonArray(jsonArray:[AnyObject], forClass objectClass:AnyClass) -> [AnyObject] {
         var resultArray = [AnyObject]()
         for jsonArrayOccurence:AnyObject in jsonArray {
-            if let jsonDict = jsonArrayOccurence as? Dictionary<String, AnyObject> {
+            if let jsonDict = jsonArrayOccurence as? [String: AnyObject] {
                 if let objectFromJson : AnyObject = analyzeJsonDictionary(jsonDict, forClass: objectClass) {
                     resultArray.append(objectFromJson)
                 }
@@ -31,8 +31,8 @@ public class JsonManagedObject {
         return resultArray
     }
     
-    // Analyze a dDictionary
-    public func analyzeJsonDictionary(jsonDictionary:Dictionary<String, AnyObject>, forClass objectClass:AnyClass) -> AnyObject? {
+    // Analyze a dictionary
+    public func analyzeJsonDictionary(jsonDictionary:[String: AnyObject], forClass objectClass:AnyClass) -> AnyObject? {
         // 1 - Find the config object for the specified class
         if let configObject = configDatasource[NSStringFromClass(objectClass)] {
             
@@ -40,7 +40,7 @@ public class JsonManagedObject {
             var jsonFormatedDictionary = jsonDictionary
             // Envelope
             if JMOConfig.jsonWithEnvelope {
-                if let dictUnwrapped = jsonDictionary[configObject.classInfo.jsonKey]! as? Dictionary<String, AnyObject> {
+                if let dictUnwrapped = jsonDictionary[configObject.classInfo.jsonKey]! as? [String: AnyObject] {
                     jsonFormatedDictionary = dictUnwrapped
                 }
             }

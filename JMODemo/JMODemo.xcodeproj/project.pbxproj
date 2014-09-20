@@ -31,6 +31,8 @@
 		48337DA61956344200AA03DE /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48337DA21956344200AA03DE /* DatabaseManager.swift */; };
 		48337DAC195634A100AA03DE /* JMOMockAircraft.json in Resources */ = {isa = PBXBuildFile; fileRef = 48337DA8195634A100AA03DE /* JMOMockAircraft.json */; };
 		48337DAD195634A100AA03DE /* JMOMockAircrafts.json in Resources */ = {isa = PBXBuildFile; fileRef = 48337DA9195634A100AA03DE /* JMOMockAircrafts.json */; };
+		483FF3D219CDF12500807752 /* CustomObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 483FF3D119CDF12500807752 /* CustomObject.swift */; };
+		483FF3D319CDF12500807752 /* CustomObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 483FF3D119CDF12500807752 /* CustomObject.swift */; };
 		486603EB1956D35600CAD5F0 /* JsonManagedObject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48337D821956334E00AA03DE /* JsonManagedObject.framework */; };
 /* End PBXBuildFile section */
 
@@ -101,6 +103,7 @@
 		48337DA21956344200AA03DE /* DatabaseManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
 		48337DA8195634A100AA03DE /* JMOMockAircraft.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = JMOMockAircraft.json; sourceTree = "<group>"; };
 		48337DA9195634A100AA03DE /* JMOMockAircrafts.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = JMOMockAircrafts.json; sourceTree = "<group>"; };
+		483FF3D119CDF12500807752 /* CustomObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomObject.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,6 +153,7 @@
 				48337D9F1956340200AA03DE /* JMOConfigTemplate.json */,
 				48337D5A1956332900AA03DE /* AppDelegate.swift */,
 				48337D5F1956332900AA03DE /* ViewController.swift */,
+				483FF3D119CDF12500807752 /* CustomObject.swift */,
 				48337D611956332900AA03DE /* Main.storyboard */,
 				48337D641956332900AA03DE /* Images.xcassets */,
 				48337D581956332900AA03DE /* Supporting Files */,
@@ -362,6 +366,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				48337DA51956344200AA03DE /* DatabaseManager.swift in Sources */,
+				483FF3D219CDF12500807752 /* CustomObject.swift in Sources */,
 				48337D95195633DB00AA03DE /* Pilot.m in Sources */,
 				48337D601956332900AA03DE /* ViewController.swift in Sources */,
 				48337D91195633DB00AA03DE /* Airport.m in Sources */,
@@ -377,6 +382,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				48337D92195633DB00AA03DE /* Airport.m in Sources */,
+				483FF3D319CDF12500807752 /* CustomObject.swift in Sources */,
 				48337DA41956344200AA03DE /* DatabaseCore.swift in Sources */,
 				48337DA61956344200AA03DE /* DatabaseManager.swift in Sources */,
 				48337D711956332900AA03DE /* JMODemoTests.swift in Sources */,

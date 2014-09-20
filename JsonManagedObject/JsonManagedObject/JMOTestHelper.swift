@@ -55,7 +55,7 @@ public class JMOTestHelper {
             if errorData == nil {
                 // Mock Json
                 var errorJson:NSError?
-                let jsonDictionary = NSJSONSerialization.JSONObjectWithData(mockData, options: NSJSONReadingOptions.MutableContainers, error: &errorJson) as Dictionary<String, AnyObject>
+                let jsonDictionary = NSJSONSerialization.JSONObjectWithData(mockData, options: NSJSONReadingOptions.MutableContainers, error: &errorJson) as [String: AnyObject]
                 
                 if errorJson == nil {
                     let mockJson:AnyObject = jsonDictionary["mock"]!
@@ -63,8 +63,8 @@ public class JMOTestHelper {
                     let mockClass:AnyClass = NSClassFromString(mockClassStrOptional!)
 
                     // Dictionary
-                    if (mockJson is Dictionary<String, AnyObject>) {
-                        var objectOptional:AnyObject? = jsonManagedObjectSharedInstance.analyzeJsonDictionary(mockJson as Dictionary<String, AnyObject>, forClass:mockClass)
+                    if (mockJson is [String: AnyObject]) {
+                        var objectOptional:AnyObject? = jsonManagedObjectSharedInstance.analyzeJsonDictionary(mockJson as [String: AnyObject], forClass:mockClass)
                         if let object : AnyObject = objectOptional {
                             objectsParsed.append(object)
                         }
