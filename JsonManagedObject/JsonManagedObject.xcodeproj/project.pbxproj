@@ -17,8 +17,6 @@
 		48507DAE19561CC400717D8A /* JMOExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48507DA619561CC400717D8A /* JMOExtension.swift */; };
 		48507DAF19561CC400717D8A /* JMOWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48507DA719561CC400717D8A /* JMOWrapper.swift */; };
 		48507DB019561CC400717D8A /* JMOConfigDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48507DA819561CC400717D8A /* JMOConfigDatasource.swift */; };
-		48507DB119561CC400717D8A /* JMOClassFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = 48507DA919561CC400717D8A /* JMOClassFactory.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		48507DB219561CC400717D8A /* JMOClassFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 48507DAA19561CC400717D8A /* JMOClassFactory.m */; };
 		48507DB519561CD000717D8A /* JMOConfigTemplate.tpl in Resources */ = {isa = PBXBuildFile; fileRef = 48507DB319561CD000717D8A /* JMOConfigTemplate.tpl */; };
 		48507DB619561CD000717D8A /* JMOConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48507DB419561CD000717D8A /* JMOConfig.swift */; };
 /* End PBXBuildFile section */
@@ -75,8 +73,6 @@
 		48507DA619561CC400717D8A /* JMOExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JMOExtension.swift; sourceTree = "<group>"; };
 		48507DA719561CC400717D8A /* JMOWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JMOWrapper.swift; sourceTree = "<group>"; };
 		48507DA819561CC400717D8A /* JMOConfigDatasource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JMOConfigDatasource.swift; sourceTree = "<group>"; };
-		48507DA919561CC400717D8A /* JMOClassFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JMOClassFactory.h; sourceTree = "<group>"; };
-		48507DAA19561CC400717D8A /* JMOClassFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JMOClassFactory.m; sourceTree = "<group>"; };
 		48507DB319561CD000717D8A /* JMOConfigTemplate.tpl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = JMOConfigTemplate.tpl; sourceTree = "<group>"; };
 		48507DB419561CD000717D8A /* JMOConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JMOConfig.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -130,8 +126,6 @@
 				48507DA619561CC400717D8A /* JMOExtension.swift */,
 				48507DA719561CC400717D8A /* JMOWrapper.swift */,
 				48507DA819561CC400717D8A /* JMOConfigDatasource.swift */,
-				48507DA919561CC400717D8A /* JMOClassFactory.h */,
-				48507DAA19561CC400717D8A /* JMOClassFactory.m */,
 				48507DA219561CA800717D8A /* Config */,
 				48507D7E19561C2600717D8A /* Supporting Files */,
 			);
@@ -179,7 +173,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				48507DB119561CC400717D8A /* JMOClassFactory.h in Headers */,
 				48507D8119561C2600717D8A /* JsonManagedObject.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -287,7 +280,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				48507DB019561CC400717D8A /* JMOConfigDatasource.swift in Sources */,
-				48507DB219561CC400717D8A /* JMOClassFactory.m in Sources */,
 				48507DAC19561CC400717D8A /* JMOConfigModel.swift in Sources */,
 				48507DB619561CD000717D8A /* JMOConfig.swift in Sources */,
 				48507DAF19561CC400717D8A /* JMOWrapper.swift in Sources */,
@@ -505,6 +497,7 @@
 				48507D9319561C2600717D8A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		48507D9419561C2600717D8A /* Build configuration list for PBXNativeTarget "JsonManagedObjectTests" */ = {
 			isa = XCConfigurationList;
@@ -513,6 +506,7 @@
 				48507D9619561C2600717D8A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

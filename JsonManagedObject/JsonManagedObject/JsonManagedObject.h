@@ -17,6 +17,5 @@ FOUNDATION_EXPORT double JsonManagedObjectVersionNumber;
 FOUNDATION_EXPORT const unsigned char JsonManagedObjectVersionString[];
 
 // In this header, you should import all the public headers of your framework using statements like #import <JsonManagedObject/PublicHeader.h>
-#import <JsonManagedObject/JMOClassFactory.h>
 
 

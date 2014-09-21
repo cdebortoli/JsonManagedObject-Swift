@@ -42,6 +42,7 @@ class ViewController: UIViewController {
 //        let customObjectDictOptional = dictionaryFromService("customObjectJson")
 //        if let customObjectDict = customObjectDictOptional {
 //            var customObject:CustomObject? = jsonManagedObjectSharedInstance.analyzeJsonDictionary(customObjectDict, forClass: CustomObject.self) as? CustomObject
+//            println(customObject!.attrString)
 //        }
         
     }

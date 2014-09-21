@@ -17,57 +17,82 @@ import Foundation
         if let parameter = jmoParameter as? JMOConfigModel.JMOParameterModel {
             
             if jsonDict[parameter.jsonKey] != nil {
+                println(parameter.attribute)
                 if let objectValue : AnyObject = getValue(parameter, fromJson: jsonDict) {
+                    println(objectValue)
                     setValue(objectValue, forKey: parameter.attribute)
                 }
             }
         }
     }
     
-//    TODO : see reflect method
-// Note : Cast anyClass to nsobject.Type to be able to init it
-//var clz: NSObject.Type = myAnyClass as NSObject.Type
     internal func getValue(jmoParameter:JMOConfigModel.JMOParameterModel, fromJson jsonDict:[String: AnyObject]) -> AnyObject? {
         
-        var propertyOptional:objc_property_t? = nil
-        if let childrenClass:AnyClass = childrenClassReference {
-                        propertyOptional = class_getProperty(childrenClass, jmoParameter.attribute) as objc_property_t?
-//                        propertyOptional = ClassFactory.getPropertyFor(childrenClass, andPropertyName: parameter.attribute)
-        }
-        println(propertyOptional)
-        if let property = propertyOptional {
-            var x = property_getAttributes(property)
-            let propertyTypeOptional = String.fromCString(property_getAttributes(property))
-            let propertyKeyOptional = String.fromCString(property_getName(property))
-            
-            let jsonStringOptional = jsonDict[jmoParameter.jsonKey]! as? String
-            switch (propertyTypeOptional, propertyKeyOptional, jsonStringOptional) {
-            case (.Some(let propertyType), .Some(let propertyKey), .Some(let jsonString)):
-                switch(propertyType.substringFromIndex(advance(propertyType.startIndex, 1))) {
-                case "f":
-                    println("\(propertyKey) is f")
+        var jsonStringOptional = jsonDict[jmoParameter.jsonKey]! as? String
+        
+        println(jsonStringOptional)
+        
+        if let jsonString = jsonStringOptional {
+            let JMOWrapperMirror = reflect(self)
+            for var i = 0; i < JMOWrapperMirror.count; i++ {
+                let (propertyName, childMirror) = JMOWrapperMirror[i]
+                
+                switch(childMirror.valueType) {
+                case let x where x is String.Type:
+                    return jsonString
+                case let x where x is Optional<String>.Type:
+                    return jsonString
+                case let x where x is Int.Type:
+                    return jsonString.toInt()
+                case let x where x is Optional<Int>.Type:
+                    return jsonString.toInt()
+                case let x where x is Float.Type:
+                    return (jsonString as NSString).floatValue
+                case let x where x is Optional<Float>.Type:
+                    return (jsonString as NSString).floatValue
+                case let x where x is Double.Type:
+                    return (jsonString as NSString).doubleValue
+                case let x where x is Optional<Double>.Type:
+                    return (jsonString as NSString).doubleValue
+                case let x where x is NSDate.Type:
+                    return jsonManagedObjectSharedInstance.dateFormatter.dateFromString(jsonString)
+                case let x where x is Optional<NSDate>.Type:
+                    return jsonManagedObjectSharedInstance.dateFormatter.dateFromString(jsonString)
+                case let x where x is NSData.Type:
+                    return (jsonString as NSString).dataUsingEncoding(NSUTF8StringEncoding)
+                case let x where x is Optional<NSData>.Type:
+                    return (jsonString as NSString).dataUsingEncoding(NSUTF8StringEncoding)
+                case let x where x is NSNumber.Type:
+                    var numberFormatter = NSNumberFormatter()
+                    return numberFormatter.numberFromString(jsonString)
+                case let x where x is Optional<NSNumber>.Type:
+                    var numberFormatter = NSNumberFormatter()
+                    return numberFormatter.numberFromString(jsonString)
+                case let x where x is NSInteger.Type:
+                    return jsonString.toInt()
+                case let x where x is Optional<NSInteger>.Type:
+                    return jsonString.toInt()
+                case let x where x is Bool.Type:
+                    return (jsonString as NSString).boolValue
+                case let x where x is Optional<Bool>.Type:
+                    return (jsonString as NSString).boolValue
+                case let x where x is Array<AnyObject>.Type:
                     return nil
-                case "i":
-                    println("\(propertyKey) is i")
+                case let x where x is Optional<Array<AnyObject>>.Type:
                     return nil
-                case "d":
-                    println("\(propertyKey) is d")
+                case let x where x is Dictionary<NSObject, AnyObject>.Type:
                     return nil
-                case "c":
-                    println("\(propertyKey) is c")
+                case let x where x is Optional<Dictionary<NSObject, AnyObject>>.Type:
                     return nil
-                case "@":
-                    println("\(propertyKey) is @")
+                case let x where x is Dictionary<String, AnyObject>.Type:
+                    return nil
+                case let x where x is Optional<Dictionary<String, AnyObject>>.Type:
                     return nil
                 default:
-                    return nil
+                    var notFound = "NotFound"
                 }
-            default:
-                return nil
             }
         }
-        
-        
         return nil
     }
 }

@@ -70,12 +70,14 @@ public class JsonManagedObject {
                 }
             // 3b - CustomObject Parse & init
             } else if class_getSuperclass(objectClass) is JMOWrapper.Type {
-                var cobject : AnyObject! = JMOClassFactory.initObjectFromClass(objectClass)
+                var classType: NSObject.Type = objectClass as NSObject.Type
+                var cobject : AnyObject! = classType()
                 (cobject as JMOWrapper).childrenClassReference = objectClass
-                    
+                
                 for parameter in configObject.parameters {
                     (cobject as JMOWrapper).setParameter(parameter, fromJson: jsonFormatedDictionary)
                 }
+                return cobject
             }
         }
         return nil
