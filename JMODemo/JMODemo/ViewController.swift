@@ -39,11 +39,13 @@ class ViewController: UIViewController {
         }
         
         // ------------------ Get Custom object from JSON ------------------
-//        let customObjectDictOptional = dictionaryFromService("customObjectJson")
-//        if let customObjectDict = customObjectDictOptional {
-//            var customObject:CustomObject? = jsonManagedObjectSharedInstance.analyzeJsonDictionary(customObjectDict, forClass: CustomObject.self) as? CustomObject
-//            println(customObject!.attrString)
-//        }
+        let customObjectDictOptional = dictionaryFromService("customObjectJson")
+        if let customObjectDict = customObjectDictOptional {
+            var customObject:CustomObject? = jsonManagedObjectSharedInstance.analyzeJsonDictionary(customObjectDict, forClass: CustomObject.self) as? CustomObject
+            println(customObject!.attrString)
+            println(customObject!.attrNumber)
+            println(customObject!.attrDate)
+        }
         
     }
     

@@ -14,11 +14,11 @@ import JsonManagedObject
     public var attrDate:NSDate?
     public var attrData:NSData?
     public var attrNumber:NSNumber?
-    public var attrInt:Int?
-    public var attrInteger:NSInteger?
-    public var attrFloat:Float?
-    public var attrDouble:Double?
-    public var attrBool:Bool?
-    public var attrArray:[AnyObject]?
-    public var attrDictionary:[NSObject: AnyObject]?
+//    public var attrInt:Int?
+//    public var attrInteger:NSInteger?
+//    public var attrFloat:Float?
+//    public var attrDouble:Double?
+//    public var attrBool:Bool?
+//    public var attrArray:[AnyObject]?
+//    public var attrDictionary:[NSObject: AnyObject]?
 }
