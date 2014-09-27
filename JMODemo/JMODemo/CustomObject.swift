@@ -19,6 +19,6 @@ import JsonManagedObject
 //    public var attrFloat:Float?
 //    public var attrDouble:Double?
 //    public var attrBool:Bool?
-//    public var attrArray:[AnyObject]?
-//    public var attrDictionary:[NSObject: AnyObject]?
+    public var attrArray:[CustomObject]?
+    public var attrDictionary:[String: CustomObject]?
 }

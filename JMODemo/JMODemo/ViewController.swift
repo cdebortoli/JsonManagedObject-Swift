@@ -45,6 +45,8 @@ class ViewController: UIViewController {
             println(customObject!.attrString)
             println(customObject!.attrNumber)
             println(customObject!.attrDate)
+            println(customObject!.attrArray![0].attrString)
+            println(customObject!.attrDictionary!["a"])
         }
         
     }
