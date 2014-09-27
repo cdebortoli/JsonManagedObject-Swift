@@ -14,7 +14,7 @@ import Foundation
     
     internal func setParameter(jmoParameter:AnyObject, fromJson jsonDict:[String: AnyObject])
     {
-        if let parameter = jmoParameter as? JMOConfigModel.JMOParameterModel {
+        if let parameter = jmoParameter as? JMOParameterModel {
             
             if jsonDict[parameter.jsonKey] != nil {
                 setValue(parameter, fromJson: jsonDict)
@@ -23,7 +23,7 @@ import Foundation
     }
     
     //    Error: Can't set value for optional primitive type with swift.
-    internal func setValue(jmoParameter:JMOConfigModel.JMOParameterModel, fromJson jsonDict:[String: AnyObject]) {
+    internal func setValue(jmoParameter:JMOParameterModel, fromJson jsonDict:[String: AnyObject]) {
         
         if let jsonDictValue: AnyObject = jsonDict[jmoParameter.jsonKey] {
             
@@ -35,7 +35,6 @@ import Foundation
             } else if jsonDictValue is NSNumber {
                 jsonStringOptional =  "\(jsonDictValue as NSNumber)"
             }
-            //            Array and Dictionary
             else {
                 println("Array or dictionary")
             }
@@ -47,7 +46,7 @@ import Foundation
                 for var i = 0; i < JMOWrapperMirror.count; i++ {
                     let (propertyName, childMirror) = JMOWrapperMirror[i]
                     
-                    if propertyName == jmoParameter.attribute {
+                    if propertyName == jmoParameter.attributeName {
                         switch(childMirror.valueType) {
                         case let x where x is String.Type:
                             setValue(jsonString, forKey: propertyName)

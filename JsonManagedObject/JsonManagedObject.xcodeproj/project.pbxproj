@@ -19,6 +19,8 @@
 		48507DB019561CC400717D8A /* JMOConfigDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48507DA819561CC400717D8A /* JMOConfigDatasource.swift */; };
 		48507DB519561CD000717D8A /* JMOConfigTemplate.tpl in Resources */ = {isa = PBXBuildFile; fileRef = 48507DB319561CD000717D8A /* JMOConfigTemplate.tpl */; };
 		48507DB619561CD000717D8A /* JMOConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48507DB419561CD000717D8A /* JMOConfig.swift */; };
+		48EF849019D6DD4E005F3C6E /* JMOParameterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48EF848F19D6DD4E005F3C6E /* JMOParameterModel.swift */; };
+		48EF849119D6DD4E005F3C6E /* JMOParameterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48EF848F19D6DD4E005F3C6E /* JMOParameterModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +77,7 @@
 		48507DA819561CC400717D8A /* JMOConfigDatasource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JMOConfigDatasource.swift; sourceTree = "<group>"; };
 		48507DB319561CD000717D8A /* JMOConfigTemplate.tpl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = JMOConfigTemplate.tpl; sourceTree = "<group>"; };
 		48507DB419561CD000717D8A /* JMOConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JMOConfig.swift; sourceTree = "<group>"; };
+		48EF848F19D6DD4E005F3C6E /* JMOParameterModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JMOParameterModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +125,7 @@
 				48507D8019561C2600717D8A /* JsonManagedObject.h */,
 				48507DA319561CC400717D8A /* JsonManagedObject.swift */,
 				48507DA419561CC400717D8A /* JMOConfigModel.swift */,
+				48EF848F19D6DD4E005F3C6E /* JMOParameterModel.swift */,
 				48507DA519561CC400717D8A /* JMOTestHelper.swift */,
 				48507DA619561CC400717D8A /* JMOExtension.swift */,
 				48507DA719561CC400717D8A /* JMOWrapper.swift */,
@@ -281,6 +285,7 @@
 			files = (
 				48507DB019561CC400717D8A /* JMOConfigDatasource.swift in Sources */,
 				48507DAC19561CC400717D8A /* JMOConfigModel.swift in Sources */,
+				48EF849019D6DD4E005F3C6E /* JMOParameterModel.swift in Sources */,
 				48507DB619561CD000717D8A /* JMOConfig.swift in Sources */,
 				48507DAF19561CC400717D8A /* JMOWrapper.swift in Sources */,
 				48507DAD19561CC400717D8A /* JMOTestHelper.swift in Sources */,
@@ -293,6 +298,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				48EF849119D6DD4E005F3C6E /* JMOParameterModel.swift in Sources */,
 				48507D8E19561C2600717D8A /* JsonManagedObjectTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

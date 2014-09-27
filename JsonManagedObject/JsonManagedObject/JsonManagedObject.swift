@@ -12,7 +12,7 @@ public let jsonManagedObjectSharedInstance = JsonManagedObject()
 
 public class JsonManagedObject {
     public let dateFormatter = NSDateFormatter()
-    internal lazy var configDatasource = JMOConfigDatasource()
+    internal lazy var configDatasource = JMOConfigDatasource() // Data from the template file
     
     public init() {
         dateFormatter.dateFormat = JMOConfig.dateFormat

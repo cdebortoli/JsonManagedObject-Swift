@@ -8,26 +8,12 @@
 
 import Foundation
 
+// Represent the configuration loaded from template file
 internal class JMOConfigDatasource {
     internal var jmoObjects = [JMOConfigModel]()
     
     internal init() {
         jmoObjects = parseConfigObjectsFromConfigFile()
-    }
-    
-    internal subscript(attributeType: String) -> JMOConfigModel? {
-        get {
-            return getConfigForType(attributeType)
-        }
-    }
-    
-    internal func getConfigForType(attributeType:String) -> JMOConfigModel? {
-        for jmoObject in jmoObjects {
-            if jmoObject.classInfo.attribute == attributeType {
-                return jmoObject
-            }
-        }
-        return nil
     }
     
     internal func parseConfigObjectsFromConfigFile() -> [JMOConfigModel] {
@@ -44,7 +30,7 @@ internal class JMOConfigDatasource {
                     let configClassAttribute = configClass["attribute"]! as String
                     let configClassJsonKey = configClass["json"]! as String
                     
-                    var newClassInfo = JMOConfigModel.JMOParameterModel(attribute: configClassAttribute, jsonKey: configClassJsonKey)
+                    var newClassInfo = JMOParameterModel(attribute: configClassAttribute, jsonKey: configClassJsonKey)
                     var newJMOObject = JMOConfigModel(classInfo: newClassInfo)
                     
                     // Attributes
@@ -53,7 +39,7 @@ internal class JMOConfigDatasource {
                         let parameterJsonKey = configParameter["json"]! as String
                         var parameterType = configParameter["type"] as? String
                         
-                        var newConfigParameter = JMOConfigModel.JMOParameterModel(attribute: parameterAttribute, jsonKey: parameterJsonKey, objectType: parameterType)
+                        var newConfigParameter = JMOParameterModel(attribute: parameterAttribute, jsonKey: parameterJsonKey, objectType: parameterType)
                         newJMOObject.parameters.append(newConfigParameter)
                     }
                     configObjects.append(newJMOObject)
@@ -69,6 +55,23 @@ internal class JMOConfigDatasource {
         if let filepath = configFilepath {
             var errorFilepath:NSError?
             return NSData.dataWithContentsOfFile(filepath, options: NSDataReadingOptions.DataReadingMappedIfSafe, error: &errorFilepath)
+        }
+        return nil
+    }
+}
+
+extension JMOConfigDatasource {
+    internal subscript(attributeType: String) -> JMOConfigModel? {
+        get {
+            return getConfigForType(attributeType)
+        }
+    }
+    
+    internal func getConfigForType(attributeType:String) -> JMOConfigModel? {
+        for jmoObject in jmoObjects {
+            if jmoObject.classInfo.attributeName == attributeType {
+                return jmoObject
+            }
         }
         return nil
     }

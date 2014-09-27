@@ -8,10 +8,11 @@
 
 import Foundation
 
+// Represent a template of entity
 public class JMOConfigModel {
     
-    public var classInfo:JMOParameterModel
-    public var parameters = [JMOParameterModel]()
+    public var classInfo:JMOParameterModel // General detail of the entity
+    public var parameters = [JMOParameterModel]() // Parameters of the entity
     
     public init(classInfo:JMOParameterModel) {
         self.classInfo = classInfo
@@ -23,23 +24,6 @@ public class JMOConfigModel {
         }
         set {
            parameters[index] = newValue
-        }
-    }
-    
-    // Parameter object
-    public class JMOParameterModel {
-        public let attribute:String
-        public let objectType:String?
-        public let jsonKey:String
-        
-        public init(attribute:String, jsonKey:String, objectType:String?) {
-            self.attribute = attribute
-            self.jsonKey = jsonKey
-            self.objectType = objectType
-        }
-        
-        public convenience init(attribute:String, jsonKey:String) {
-            self.init(attribute: attribute, jsonKey: jsonKey, objectType: nil)
         }
     }
 }

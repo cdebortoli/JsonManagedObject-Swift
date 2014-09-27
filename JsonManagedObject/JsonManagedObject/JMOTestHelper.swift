@@ -27,10 +27,10 @@ public class JMOTestHelper {
                             // Completion tuple/closure
                             var completionTuple:(attributeValue:AnyObject?, attributeName:String)
                             completionTuple.attributeValue = nil
-                            if let valueObject:AnyObject = (object as? NSManagedObject)?.valueForKey(parameter.attribute) {
+                            if let valueObject:AnyObject = (object as? NSManagedObject)?.valueForKey(parameter.attributeName) {
                                 completionTuple.attributeValue = valueObject
                             }
-                            completionTuple.attributeName = parameter.attribute
+                            completionTuple.attributeName = parameter.attributeName
                             completion(completionTuple)
                         }
                     }

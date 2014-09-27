@@ -27,7 +27,7 @@ class ViewController: UIViewController {
             println(aircraft)
             
             // ------------------ Get JSON from Aircraft ------------------
-            let aircraftJsonRepresentation = aircraft?.getJmoJson()
+            let aircraftJsonRepresentation = aircraft?.getJson()
             println(aircraftJsonRepresentation)
         }
         

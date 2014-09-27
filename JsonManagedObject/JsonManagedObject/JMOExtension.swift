@@ -10,30 +10,30 @@ import Foundation
 import CoreData
 import JsonManagedObject
 
+/*
+* JSON -> SWIFT
+*/
 public extension NSManagedObject {
-    /*
-    * JSON -> SWIFT
-    */
     
     // Set property value
-    internal func setProperty(jmoParameter:JMOConfigModel.JMOParameterModel, fromJson jsonDict:[String: AnyObject]) {
+    internal func setProperty(jmoParameter:JMOParameterModel, fromJson jsonDict:[String: AnyObject]) {
         if jsonDict[jmoParameter.jsonKey] != nil {
             if let managedObjectValue : AnyObject = getValue(jmoParameter, fromJsonDictionary: jsonDict) {
-                setValue(managedObjectValue, forKey: jmoParameter.attribute)
+                setValue(managedObjectValue, forKey: jmoParameter.attributeName)
             }
         }
     }
     
     // Get NSPropertyDescription
-    internal func getPropertyDescription(jmoParameter:JMOConfigModel.JMOParameterModel) -> NSPropertyDescription? {
-        if let propertyDescription = self.entity.propertiesByName[jmoParameter.attribute] as? NSPropertyDescription {
+    internal func getPropertyDescription(jmoParameter:JMOParameterModel) -> NSPropertyDescription? {
+        if let propertyDescription = self.entity.propertiesByName[jmoParameter.attributeName] as? NSPropertyDescription {
             return propertyDescription
         }
         return nil
     }
     
     // Retrieve formated property value from json
-    internal func getValue(jmoParameter:JMOConfigModel.JMOParameterModel, fromJsonDictionary jsonDict:[String: AnyObject]) -> AnyObject? {
+    internal func getValue(jmoParameter:JMOParameterModel, fromJsonDictionary jsonDict:[String: AnyObject]) -> AnyObject? {
         
         var propertyDescriptionOptional = getPropertyDescription(jmoParameter) as NSPropertyDescription?
         if let propertyDescription = propertyDescriptionOptional {
@@ -58,11 +58,14 @@ public extension NSManagedObject {
         }
         return nil
     }
-    
-    /*
-    * SWIFT -> JSON
-    */
-    public func getJmoJson(relationshipClassesToIgnore:[String] = [String]()) -> Dictionary <String, AnyObject>{
+}
+
+/*
+* SWIFT -> JSON
+*/
+public extension NSManagedObject {
+
+    public func getJson(relationshipClassesToIgnore:[String] = [String]()) -> Dictionary <String, AnyObject>{
         var jsonDict = Dictionary <String, AnyObject>()
         
         var newRelationshipClassesToIgnore = [String]()
@@ -71,7 +74,7 @@ public extension NSManagedObject {
 
         if let configObject = jsonManagedObjectSharedInstance.configDatasource[NSStringFromClass(self.classForCoder)] {
             for parameter in configObject.parameters {
-                if let managedObjectValue:AnyObject? = self.valueForKey(parameter.attribute) {
+                if let managedObjectValue:AnyObject? = self.valueForKey(parameter.attributeName) {
                     
                     if managedObjectValue is NSSet {
                         var relationshipObjects = [AnyObject]()
@@ -79,7 +82,7 @@ public extension NSManagedObject {
                             if (contains(newRelationshipClassesToIgnore, NSStringFromClass(objectFromSet.classForCoder))) {
                                 break setloop
                             }
-                            relationshipObjects.append((objectFromSet as NSManagedObject).getJmoJson(relationshipClassesToIgnore: newRelationshipClassesToIgnore))
+                            relationshipObjects.append((objectFromSet as NSManagedObject).getJson(relationshipClassesToIgnore: newRelationshipClassesToIgnore))
                         }
                         if !relationshipObjects.isEmpty {
                             jsonDict[parameter.jsonKey] = relationshipObjects
