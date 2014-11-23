@@ -51,7 +51,7 @@ public extension NSManagedObject {
                 if let jsonArray = jsonDict[jmoParameter.jsonKey]! as? [[String: AnyObject]] {
                     return (propertyDescription as NSRelationshipDescription).getRelationshipValueForJmoJsonArray(jsonArray)
                 } else if let jsonDictRelation = jsonDict[jmoParameter.jsonKey]! as? [String: AnyObject] {
-                    return jsonManagedObjectSharedInstance.analyzeJsonDictionary(jsonDictRelation, forClass: NSClassFromString((propertyDescription as NSRelationshipDescription).destinationEntity.managedObjectClassName))
+                    return jsonManagedObjectSharedInstance.analyzeJsonDictionary(jsonDictRelation, forClass: NSClassFromString((propertyDescription as NSRelationshipDescription).destinationEntity?.managedObjectClassName))
                 }
                 
             }
@@ -111,7 +111,7 @@ internal extension NSAttributeDescription {
         case .StringAttributeType:
             return jsonValue
         case .DecimalAttributeType,.DoubleAttributeType:
-            return NSNumber.numberWithDouble((jsonValue as NSString).doubleValue)
+            return NSNumber(double:(jsonValue as NSString).doubleValue)
         case .FloatAttributeType:
             return (jsonValue as NSString).floatValue
         case .Integer16AttributeType,.Integer32AttributeType,.Integer64AttributeType:
@@ -128,7 +128,7 @@ internal extension NSRelationshipDescription {
     internal func getRelationshipValueForJmoJsonArray(jsonArray:[[String: AnyObject]]) -> NSMutableSet {
         var relationshipSet = NSMutableSet()
         for jsonValue in jsonArray  {
-            if let relationshipObject: AnyObject = jsonManagedObjectSharedInstance.analyzeJsonDictionary(jsonValue, forClass: NSClassFromString(self.destinationEntity.managedObjectClassName)) {
+            if let relationshipObject: AnyObject = jsonManagedObjectSharedInstance.analyzeJsonDictionary(jsonValue, forClass: NSClassFromString(self.destinationEntity?.managedObjectClassName)) {
                 relationshipSet.addObject(relationshipObject)
             }
         }

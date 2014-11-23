@@ -54,7 +54,7 @@ internal class JMOConfigDatasource {
         let configFilepath:String? = NSBundle.mainBundle().pathForResource("JMOConfigTemplate", ofType: "json")
         if let filepath = configFilepath {
             var errorFilepath:NSError?
-            return NSData.dataWithContentsOfFile(filepath, options: NSDataReadingOptions.DataReadingMappedIfSafe, error: &errorFilepath)
+            return NSData(contentsOfFile:filepath, options: NSDataReadingOptions.DataReadingMappedIfSafe, error: &errorFilepath)
         }
         return nil
     }

@@ -50,12 +50,12 @@ public class JMOTestHelper {
             
             // Mock Data
             var errorData:NSError?
-            let mockData = NSData.dataWithContentsOfFile(mockFilepath, options: nil, error: &errorData)
+            let mockData = NSData(contentsOfFile:mockFilepath, options: nil, error: &errorData)
             
             if errorData == nil {
                 // Mock Json
                 var errorJson:NSError?
-                let jsonDictionary = NSJSONSerialization.JSONObjectWithData(mockData, options: NSJSONReadingOptions.MutableContainers, error: &errorJson) as [String: AnyObject]
+                let jsonDictionary = NSJSONSerialization.JSONObjectWithData(mockData!, options: NSJSONReadingOptions.MutableContainers, error: &errorJson) as [String: AnyObject]
                 
                 if errorJson == nil {
                     let mockJson:AnyObject = jsonDictionary["mock"]!
